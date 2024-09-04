@@ -1,0 +1,465 @@
+{
+  "buildConfig": {
+    "digestMapping": {
+      "sha256:0eaa7e47df9ff6a0c693146fd8208dfbf7e01dd687cfa9ff012b04e2a0e94067": "step4",
+      "sha256:320f7d403f33345a4d37ca7864a682dbd3dd7fc0fe1181dad8b2bcdf627530fa": "step0",
+      "sha256:42e7099a94177f099115f6507f4fe1c0e9cb8832834e1bb4e27d1c4534e17ac6": "step5",
+      "sha256:6d7aa3402016d4e9f86cf66ba8184eac577905951907b1a92f2ae9e6f32e2085": "step2",
+      "sha256:7e7671ecffad09c105b5cd970832356fac25291fc1acb8c2f8a53c1cc93bec97": "step1",
+      "sha256:f750b02cd753f8fac6611489788463cd65e939ffd850623afd94b9ca50faa223": "step3"
+    },
+    "llbDefinition": [
+      {
+        "id": "step0",
+        "op": {
+          "Op": {
+            "source": {
+              "identifier": "docker-image://cgr.dev/chainguard/wolfi-base:latest@sha256:72c8bfed3266b2780243b144dc5151150015baf5a739edbbde53d154574f1607"
+            }
+          },
+          "constraints": {},
+          "platform": {
+            "Architecture": "amd64",
+            "OS": "linux"
+          }
+        }
+      },
+      {
+        "id": "step1",
+        "inputs": [
+          "step0:0"
+        ],
+        "op": {
+          "Op": {
+            "exec": {
+              "meta": {
+                "args": [
+                  "/bin/sh",
+                  "-c",
+                  "apk update \u0026\u0026 apk add curl \u0026\u0026 apk add --update python3 py3-pip"
+                ],
+                "cwd": "/",
+                "env": [
+                  "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                  "SSL_CERT_FILE=/etc/ssl/certs/ca-certificates.crt"
+                ],
+                "removeMountStubsRecursive": true,
+                "user": "0"
+              },
+              "mounts": [
+                {
+                  "dest": "/",
+                  "input": 0,
+                  "output": 0
+                }
+              ]
+            }
+          },
+          "constraints": {},
+          "platform": {
+            "Architecture": "amd64",
+            "OS": "linux"
+          }
+        }
+      },
+      {
+        "id": "step2",
+        "inputs": [
+          "step1:0"
+        ],
+        "op": {
+          "Op": {
+            "exec": {
+              "meta": {
+                "args": [
+                  "/bin/sh",
+                  "-c",
+                  "addgroup -S ansible \u0026\u0026 adduser -S ansible -G ansible"
+                ],
+                "cwd": "/",
+                "env": [
+                  "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                  "SSL_CERT_FILE=/etc/ssl/certs/ca-certificates.crt"
+                ],
+                "removeMountStubsRecursive": true,
+                "user": "0"
+              },
+              "mounts": [
+                {
+                  "dest": "/",
+                  "input": 0,
+                  "output": 0
+                }
+              ]
+            }
+          },
+          "constraints": {},
+          "platform": {
+            "Architecture": "amd64",
+            "OS": "linux"
+          }
+        }
+      },
+      {
+        "id": "step3",
+        "inputs": [
+          "step2:0"
+        ],
+        "op": {
+          "Op": {
+            "exec": {
+              "meta": {
+                "args": [
+                  "/bin/sh",
+                  "-c",
+                  "python3 -m pip install --user ansible"
+                ],
+                "cwd": "/",
+                "env": [
+                  "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                  "SSL_CERT_FILE=/etc/ssl/certs/ca-certificates.crt"
+                ],
+                "removeMountStubsRecursive": true,
+                "user": "ansible"
+              },
+              "mounts": [
+                {
+                  "dest": "/",
+                  "input": 0,
+                  "output": 0
+                }
+              ]
+            }
+          },
+          "constraints": {},
+          "platform": {
+            "Architecture": "amd64",
+            "OS": "linux"
+          }
+        }
+      },
+      {
+        "id": "step4",
+        "inputs": [
+          "step3:0"
+        ],
+        "op": {
+          "Op": {
+            "file": {
+              "actions": [
+                {
+                  "Action": {
+                    "mkdir": {
+                      "makeParents": true,
+                      "mode": 493,
+                      "owner": {
+                        "user": {
+                          "User": {
+                            "byName": {
+                              "input": 0,
+                              "name": "ansible"
+                            }
+                          }
+                        }
+                      },
+                      "path": "/home/ansible",
+                      "timestamp": -1
+                    }
+                  },
+                  "input": 0,
+                  "output": 0,
+                  "secondaryInput": -1
+                }
+              ]
+            }
+          },
+          "constraints": {}
+        }
+      },
+      {
+        "id": "step5",
+        "inputs": [
+          "step4:0"
+        ],
+        "op": {
+          "Op": null
+        }
+      }
+    ]
+  },
+  "buildType": "https://mobyproject.org/buildkit@v1",
+  "builder": {
+    "id": "https://github.com/santoshkal/ansible-image/actions/runs/10614798370/attempts/1"
+  },
+  "invocation": {
+    "configSource": {
+      "entryPoint": "Dockerfile"
+    },
+    "environment": {
+      "platform": "linux/amd64"
+    },
+    "parameters": {
+      "frontend": "dockerfile.v0",
+      "locals": [
+        {
+          "name": "context"
+        },
+        {
+          "name": "dockerfile"
+        }
+      ]
+    }
+  },
+  "materials": [
+    {
+      "digest": {
+        "sha256": "72c8bfed3266b2780243b144dc5151150015baf5a739edbbde53d154574f1607"
+      },
+      "uri": "pkg:docker/cgr.dev/chainguard/wolfi-base@latest?platform=linux%2Famd64"
+    },
+    {
+      "digest": {
+        "sha256": "176e0869c38aeaede37e594fcf182c91d44391a932e1d71e99ec204873445a33"
+      },
+      "uri": "pkg:docker/docker/buildkit-syft-scanner@stable-1"
+    }
+  ],
+  "metadata": {
+    "buildFinishedOn": "2024-08-29T12:15:14.304431584Z",
+    "buildInvocationID": "ymkf4p8qaql6d61q62gguaqbl",
+    "buildStartedOn": "2024-08-29T12:14:22.400561902Z",
+    "completeness": {
+      "environment": true,
+      "materials": false,
+      "parameters": true
+    },
+    "https://mobyproject.org/buildkit@v1#metadata": {
+      "layers": {
+        "step0:0": [
+          [
+            {
+              "digest": "sha256:77f89bfcbde8544a7fd809d7d59f0f20356e49f215a78441d10bad84a434ee20",
+              "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+              "size": 6656185
+            }
+          ]
+        ],
+        "step1:0": [
+          [
+            {
+              "digest": "sha256:77f89bfcbde8544a7fd809d7d59f0f20356e49f215a78441d10bad84a434ee20",
+              "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+              "size": 6656185
+            },
+            {
+              "digest": "sha256:c5a847f0ff53e4a34274f7d5708ff4a699637cf8d559931c4182b02b762c9a0a",
+              "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+              "size": 32374169
+            }
+          ]
+        ],
+        "step2:0": [
+          [
+            {
+              "digest": "sha256:77f89bfcbde8544a7fd809d7d59f0f20356e49f215a78441d10bad84a434ee20",
+              "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+              "size": 6656185
+            },
+            {
+              "digest": "sha256:c5a847f0ff53e4a34274f7d5708ff4a699637cf8d559931c4182b02b762c9a0a",
+              "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+              "size": 32374169
+            },
+            {
+              "digest": "sha256:56e888b0661fe3e062980c6626c13b7ac04d0df504aae1d24c9beede1c0b6d7f",
+              "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+              "size": 1081
+            }
+          ]
+        ],
+        "step3:0": [
+          [
+            {
+              "digest": "sha256:77f89bfcbde8544a7fd809d7d59f0f20356e49f215a78441d10bad84a434ee20",
+              "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+              "size": 6656185
+            },
+            {
+              "digest": "sha256:c5a847f0ff53e4a34274f7d5708ff4a699637cf8d559931c4182b02b762c9a0a",
+              "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+              "size": 32374169
+            },
+            {
+              "digest": "sha256:56e888b0661fe3e062980c6626c13b7ac04d0df504aae1d24c9beede1c0b6d7f",
+              "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+              "size": 1081
+            },
+            {
+              "digest": "sha256:9d5867e81b96567d16999c94e0879b57251fb575c9748965b76298a84d187576",
+              "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+              "size": 125018337
+            }
+          ]
+        ],
+        "step4:0": [
+          [
+            {
+              "digest": "sha256:77f89bfcbde8544a7fd809d7d59f0f20356e49f215a78441d10bad84a434ee20",
+              "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+              "size": 6656185
+            },
+            {
+              "digest": "sha256:c5a847f0ff53e4a34274f7d5708ff4a699637cf8d559931c4182b02b762c9a0a",
+              "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+              "size": 32374169
+            },
+            {
+              "digest": "sha256:56e888b0661fe3e062980c6626c13b7ac04d0df504aae1d24c9beede1c0b6d7f",
+              "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+              "size": 1081
+            },
+            {
+              "digest": "sha256:9d5867e81b96567d16999c94e0879b57251fb575c9748965b76298a84d187576",
+              "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+              "size": 125018337
+            },
+            {
+              "digest": "sha256:4f4fb700ef54461cfa02571ae0db9a0dc1e0cdb5577484a6d75e68dc38e8acc1",
+              "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+              "size": 32
+            }
+          ]
+        ]
+      },
+      "source": {
+        "infos": [
+          {
+            "data": "CkZST00gY2dyLmRldi9jaGFpbmd1YXJkL3dvbGZpLWJhc2U6bGF0ZXN0IEFTIGJ1aWxkCgpSVU4gYXBrIHVwZGF0ZSAmJiBhcGsgYWRkIGN1cmwgJiYgYXBrIGFkZCAtLXVwZGF0ZSBweXRob24zIHB5My1waXAKClJVTiBhZGRncm91cCAtUyBhbnNpYmxlICYmIGFkZHVzZXIgLVMgYW5zaWJsZSAtRyBhbnNpYmxlCgpVU0VSIGFuc2libGUKClJVTiBweXRob24zIC1tIHBpcCBpbnN0YWxsIC0tdXNlciBhbnNpYmxlCgpFTlYgUEFUSD0iJFBBVEg6L2hvbWUvYW5zaWJsZS8ubG9jYWwvYmluIgoKV09SS0RJUiAvaG9tZS9hbnNpYmxlCgo=",
+            "digestMapping": {
+              "sha256:0a702ee300fdc806f07fd2620ccb618508871d1861facef1728d5f47d22249e5": "step0",
+              "sha256:0ae6778210633d1e65092223925efa9a5784fe57da73e2c196f0e12feba34b95": "step1"
+            },
+            "filename": "Dockerfile",
+            "language": "Dockerfile",
+            "llbDefinition": [
+              {
+                "id": "step0",
+                "op": {
+                  "Op": {
+                    "source": {
+                      "attrs": {
+                        "local.differ": "none",
+                        "local.followpaths": "[\"Dockerfile\",\"Dockerfile.dockerignore\",\"dockerfile\"]",
+                        "local.sharedkeyhint": "dockerfile"
+                      },
+                      "identifier": "local://dockerfile"
+                    }
+                  },
+                  "constraints": {}
+                }
+              },
+              {
+                "id": "step1",
+                "inputs": [
+                  "step0:0"
+                ],
+                "op": {
+                  "Op": null
+                }
+              }
+            ]
+          }
+        ],
+        "locations": {
+          "step0": {
+            "locations": [
+              {
+                "ranges": [
+                  {
+                    "end": {
+                      "line": 2
+                    },
+                    "start": {
+                      "line": 2
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          "step1": {
+            "locations": [
+              {
+                "ranges": [
+                  {
+                    "end": {
+                      "line": 4
+                    },
+                    "start": {
+                      "line": 4
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          "step2": {
+            "locations": [
+              {
+                "ranges": [
+                  {
+                    "end": {
+                      "line": 6
+                    },
+                    "start": {
+                      "line": 6
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          "step3": {
+            "locations": [
+              {
+                "ranges": [
+                  {
+                    "end": {
+                      "line": 10
+                    },
+                    "start": {
+                      "line": 10
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          "step4": {
+            "locations": [
+              {
+                "ranges": [
+                  {
+                    "end": {
+                      "line": 14
+                    },
+                    "start": {
+                      "line": 14
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "vcs": {
+        "localdir:context": ".",
+        "localdir:dockerfile": ".",
+        "revision": "ef9838bc243a8a13836475061334cd5001b62cf4",
+        "source": "https://github.com/santoshkal/ansible-image"
+      }
+    },
+    "reproducible": false
+  }
+}
