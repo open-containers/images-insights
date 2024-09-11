@@ -66,6 +66,7 @@ jobs:
       - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@0.20.0
         with:
+          scan-type: image
           image-ref: ${{env.REGISTRY}}/${{ env.ORG }}/${{ matrix.image.name }}:v1.0.0
           format: "json"
           output: ./${{ matrix.image.name }}-attestations/${{ matrix.image.name }}-cves.json
