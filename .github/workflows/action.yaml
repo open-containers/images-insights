@@ -69,6 +69,7 @@ jobs:
           image-ref: ${{env.REGISTRY}}/${{ env.ORG }}/${{ matrix.image.name }}:v1.0.0
           format: "json"
           output: ./${{ matrix.image.name }}-attestations/${{ matrix.image.name }}-cves.json
+          github-pat: ${{ secrets.GHCR_PAT }}
 
       - name: Export SBOM in markdown
         run: |
