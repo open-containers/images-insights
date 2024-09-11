@@ -2,8 +2,16 @@ name: image-insights
 
 on:
   # The schedule will trigger at 0900 UTC timezone
-  schedule:
-    - cron: "0 07 * * *"
+  # schedule:
+  #   - cron: "0 07 * * *"V
+  push:
+    branches:
+      - main
+permissions:
+  contents: write
+  id-token: write
+  actions: read
+  pull-requests: write
 
 jobs:
   publish-insights:
@@ -15,11 +23,6 @@ jobs:
       matrix:
         image:
           - name: ansible
-    permissions:
-      contents: write
-      id-token: write
-      actions: read
-      pull-requests: write
 
     steps:
       - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
