@@ -83,5 +83,15 @@ jobs:
           git config --global user.name "enggithubbot"
           git config --global user.email "intelopsgithubbot@gmail.com"
           git add ./${{ matrix.image.name }}-attestations
-          git commit -m "Add ansible attestation files"
-          git push https://${{ secrets.SA_PAT }}@github.com/open-containers/images-insights.git HEAD:main
+          gh api graphql \
+          -F githubRepository=${{ env.ORG }}/${{ matrix.image.name }} \
+          -F branchName="${{ matrix.policy.name}}-${{ github.run_number }}" \
+          -F expectedHeadOld=$(git  rev-parse HEAD) \
+          -F commitMessage="Add ansible attestation files" \
+          -F files[][path]="./${{ matrix.image.name }}-attestations \
+          -F files[][contents]=$(base64 -w0 ./${{ matrix.image.name }}-attestations \
+          -F 'query=@.github/api/create-commit-on-branch.gql'
+        env:
+          GH_TOKEN: ${{ secrets.GHCR_PAT }}
+          # git commit -m "Add ansible attestation files"
+          git push https://${{ secrets.SA_PAT }}@github.com/open-containers/images-insights.git HEAD:"${{ matrix.policy.name}}-${{ github.run_number }}"
