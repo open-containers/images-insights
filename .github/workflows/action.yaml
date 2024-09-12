@@ -80,8 +80,8 @@ jobs:
 
       - name: Zip and Base64 Encode Attestation Files
         run: |
-          zip -r ${matrix.image.name}-attestations.zip ./${matrix.image.name}-attestations
-          base64 -w0 ${matrix.image.name}-attestations.zip > ${matrix.image.name}-attestations.b64
+          zip -r ${{ matrix.image.name }}-attestations.zip ./${{ matrix.image.name }}-attestations
+          base64 -w0 ${{ matrix.image.name }}-attestations.zip > ${{ matrix.image.name }}-attestations.b64
 
       - name: Commit Provenance File to Repository
         run: |
@@ -94,7 +94,7 @@ jobs:
             -F expectedHeadOid="$(git rev-parse HEAD)" \
             -F commitMessage="Add ansible attestation files" \
             -F files[][path]="${{ matrix.image.name }}-attestations.b64" \
-            -F files[][contents]="$(cat ${matrix.image.name}-attestations.b64)" \
+            -F files[][contents]="$(cat ${{ matrix.image.name }}-attestations.b64)" \
             -F 'query=@.github/api/create-commit-on-branch.gql'
 
         env:
