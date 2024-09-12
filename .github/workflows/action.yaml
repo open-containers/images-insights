@@ -78,13 +78,11 @@ jobs:
         run: |
           go run ./insights_scripts/main.go -sbom ./ansible-attestations/ansoble-sbom.sbom
 
-      - name: Commit Provenance File to Repository
-        run: |
-          git config --global user.name "enggithubbot"
-          git config --global user.email "intelopsgithubbot@gmail.com"
-          git checkout -b "${{ matrix.image.name }}-${{ github.run_number }}"
-          git add ./${{ matrix.image.name }}-attestations
-          git commit --signoff -m "Add ansible attestation files"
-          git push origin "${{ matrix.image.name }}-${{ github.run_number }}"
+      - uses: planetscale/ghcommit-action@v0.1.6
+        with:
+          commit_message: "Add Provenance files"
+          repo: ${{ github.repository }}
+          branch: ${{ matrix.image.name }}-${{ github.run_number }}
+          file_pattern: "*.md *.json"
         env:
-          GH_TOKEN: ${{ secrets.GHCR_PAT }}
+          GITHUB_TOKEN: ${{secrets.GHCR_PAT}}
