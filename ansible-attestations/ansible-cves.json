@@ -1,6 +1,6 @@
 {
   "SchemaVersion": 2,
-  "CreatedAt": "2024-09-12T23:29:06.400280393Z",
+  "CreatedAt": "2024-09-12T23:30:36.527819576Z",
   "ArtifactName": "ghcr.io/open-containers/ansible:v1.0.0",
   "ArtifactType": "container_image",
   "Metadata": {
@@ -232,7 +232,7 @@
       ]
     },
     {
-      "Target": "/home/ansible/.local/lib/python3.12/site-packages/ansible_collections/google/cloud/plugins/modules/gcp_compute_region_target_https_proxy.py",
+      "Target": "/home/ansible/.local/lib/python3.12/site-packages/ansible_collections/google/cloud/plugins/modules/gcp_compute_ssl_certificate.py",
       "Class": "secret",
       "Secrets": [
         {
@@ -240,12 +240,12 @@
           "Category": "AsymmetricPrivateKey",
           "Severity": "HIGH",
           "Title": "Asymmetric Private Key",
-          "StartLine": 223,
-          "EndLine": 223,
+          "StartLine": 163,
+          "EndLine": 163,
           "Code": {
             "Lines": [
               {
-                "Number": 221,
+                "Number": 161,
                 "Content": "      -----END CERTIFICATE-----",
                 "IsCause": false,
                 "Annotation": "",
@@ -255,7 +255,7 @@
                 "LastCause": false
               },
               {
-                "Number": 222,
+                "Number": 162,
                 "Content": "    private_key: |-",
                 "IsCause": false,
                 "Annotation": "",
@@ -265,7 +265,7 @@
                 "LastCause": false
               },
               {
-                "Number": 223,
+                "Number": 163,
                 "Content": "      -----BEGIN EC PRIVATE KEY-----************************************************************************************************************************************************************************************************-----END EC PRIVATE KEY-----",
                 "IsCause": true,
                 "Annotation": "",
@@ -275,12 +275,12 @@
                 "LastCause": true
               },
               {
-                "Number": 224,
-                "Content": "    project: \"{{ gcp_project }}\"",
+                "Number": 164,
+                "Content": "    project: test_project",
                 "IsCause": false,
                 "Annotation": "",
                 "Truncated": false,
-                "Highlighted": "    project: \"{{ gcp_project }}\"",
+                "Highlighted": "    project: test_project",
                 "FirstCause": false,
                 "LastCause": false
               }
@@ -296,7 +296,7 @@
       ]
     },
     {
-      "Target": "/home/ansible/.local/lib/python3.12/site-packages/ansible_collections/google/cloud/plugins/modules/gcp_compute_target_ssl_proxy.py",
+      "Target": "/home/ansible/.local/lib/python3.12/site-packages/ansible_collections/google/cloud/plugins/modules/gcp_compute_target_https_proxy.py",
       "Class": "secret",
       "Secrets": [
         {
@@ -304,12 +304,12 @@
           "Category": "AsymmetricPrivateKey",
           "Severity": "HIGH",
           "Title": "Asymmetric Private Key",
-          "StartLine": 226,
-          "EndLine": 226,
+          "StartLine": 242,
+          "EndLine": 242,
           "Code": {
             "Lines": [
               {
-                "Number": 224,
+                "Number": 240,
                 "Content": "      -----END CERTIFICATE-----",
                 "IsCause": false,
                 "Annotation": "",
@@ -319,7 +319,7 @@
                 "LastCause": false
               },
               {
-                "Number": 225,
+                "Number": 241,
                 "Content": "    private_key: |-",
                 "IsCause": false,
                 "Annotation": "",
@@ -329,7 +329,7 @@
                 "LastCause": false
               },
               {
-                "Number": 226,
+                "Number": 242,
                 "Content": "      -----BEGIN EC PRIVATE KEY-----************************************************************************************************************************************************************************************************-----END EC PRIVATE KEY-----",
                 "IsCause": true,
                 "Annotation": "",
@@ -339,7 +339,7 @@
                 "LastCause": true
               },
               {
-                "Number": 227,
+                "Number": 243,
                 "Content": "    project: \"{{ gcp_project }}\"",
                 "IsCause": false,
                 "Annotation": "",
@@ -488,7 +488,7 @@
       ]
     },
     {
-      "Target": "/home/ansible/.local/lib/python3.12/site-packages/ansible_collections/google/cloud/plugins/modules/gcp_compute_ssl_certificate.py",
+      "Target": "/home/ansible/.local/lib/python3.12/site-packages/ansible_collections/google/cloud/plugins/modules/gcp_compute_region_target_https_proxy.py",
       "Class": "secret",
       "Secrets": [
         {
@@ -496,12 +496,12 @@
           "Category": "AsymmetricPrivateKey",
           "Severity": "HIGH",
           "Title": "Asymmetric Private Key",
-          "StartLine": 163,
-          "EndLine": 163,
+          "StartLine": 223,
+          "EndLine": 223,
           "Code": {
             "Lines": [
               {
-                "Number": 161,
+                "Number": 221,
                 "Content": "      -----END CERTIFICATE-----",
                 "IsCause": false,
                 "Annotation": "",
@@ -511,7 +511,7 @@
                 "LastCause": false
               },
               {
-                "Number": 162,
+                "Number": 222,
                 "Content": "    private_key: |-",
                 "IsCause": false,
                 "Annotation": "",
@@ -521,7 +521,7 @@
                 "LastCause": false
               },
               {
-                "Number": 163,
+                "Number": 223,
                 "Content": "      -----BEGIN EC PRIVATE KEY-----************************************************************************************************************************************************************************************************-----END EC PRIVATE KEY-----",
                 "IsCause": true,
                 "Annotation": "",
@@ -531,12 +531,12 @@
                 "LastCause": true
               },
               {
-                "Number": 164,
-                "Content": "    project: test_project",
+                "Number": 224,
+                "Content": "    project: \"{{ gcp_project }}\"",
                 "IsCause": false,
                 "Annotation": "",
                 "Truncated": false,
-                "Highlighted": "    project: test_project",
+                "Highlighted": "    project: \"{{ gcp_project }}\"",
                 "FirstCause": false,
                 "LastCause": false
               }
@@ -552,7 +552,7 @@
       ]
     },
     {
-      "Target": "/home/ansible/.local/lib/python3.12/site-packages/ansible_collections/google/cloud/plugins/modules/gcp_compute_target_https_proxy.py",
+      "Target": "/home/ansible/.local/lib/python3.12/site-packages/ansible_collections/google/cloud/plugins/modules/gcp_compute_target_ssl_proxy.py",
       "Class": "secret",
       "Secrets": [
         {
@@ -560,12 +560,12 @@
           "Category": "AsymmetricPrivateKey",
           "Severity": "HIGH",
           "Title": "Asymmetric Private Key",
-          "StartLine": 242,
-          "EndLine": 242,
+          "StartLine": 226,
+          "EndLine": 226,
           "Code": {
             "Lines": [
               {
-                "Number": 240,
+                "Number": 224,
                 "Content": "      -----END CERTIFICATE-----",
                 "IsCause": false,
                 "Annotation": "",
@@ -575,7 +575,7 @@
                 "LastCause": false
               },
               {
-                "Number": 241,
+                "Number": 225,
                 "Content": "    private_key: |-",
                 "IsCause": false,
                 "Annotation": "",
@@ -585,7 +585,7 @@
                 "LastCause": false
               },
               {
-                "Number": 242,
+                "Number": 226,
                 "Content": "      -----BEGIN EC PRIVATE KEY-----************************************************************************************************************************************************************************************************-----END EC PRIVATE KEY-----",
                 "IsCause": true,
                 "Annotation": "",
@@ -595,7 +595,7 @@
                 "LastCause": true
               },
               {
-                "Number": 243,
+                "Number": 227,
                 "Content": "    project: \"{{ gcp_project }}\"",
                 "IsCause": false,
                 "Annotation": "",
