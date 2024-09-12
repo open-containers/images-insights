@@ -80,8 +80,8 @@ jobs:
 
       - name: Commit Provenance File to Repository
         run: |
-          git config --global user.name "SAntosh Kaluskar"
-          git config --global user.email "ksantosh@intelops.dev"
+          git config --global user.name "enggithubbot"
+          git config --global user.email "intelopsgithubbot@gmail.com"
           git add ./${{ matrix.image.name }}-attestations
           git commit -m "Add ansible attestation files"
           git push https://${{ secrets.SA_PAT }}@github.com/open-containers/images-insights.git HEAD:main
