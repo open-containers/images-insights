@@ -2,11 +2,9 @@ name: image-insights
 
 on:
   # The schedule will trigger at 0900 UTC timezone
-  # schedule:
-  #   - cron: "0 07 * * *"V
-  push:
-    branches:
-      - main
+  schedule:
+    - cron: "0 07 * * *"
+
 
 permissions:
   packages: write
