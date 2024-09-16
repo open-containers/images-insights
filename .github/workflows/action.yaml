@@ -3,7 +3,7 @@ name: image-insights
 on:
   # The schedule will trigger at 0900 UTC timezone
   schedule:
-    - cron: "0 09 * * *"
+    - cron: "0 07 * * *"
   # push:
   #   branches:
   #     - main
@@ -82,7 +82,7 @@ jobs:
         with:
           commit_message: "Add Provenance files"
           repo: ${{ github.repository }}
-          branch: 'main'
+          branch: "main"
           # branch: ${{ matrix.image.name }}-${{ github.run_number }}
         env:
           GITHUB_TOKEN: ${{secrets.GHCR_PAT}}
