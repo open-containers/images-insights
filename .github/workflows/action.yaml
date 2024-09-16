@@ -3,7 +3,7 @@ name: image-insights
 on:
   # The schedule will trigger at 0900 UTC timezone
   schedule:
-    - cron: "10 07 * * *"
+    - cron: "30 07 * * *"
 
 
 permissions:
