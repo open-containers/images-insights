@@ -80,7 +80,7 @@ jobs:
         with:
           commit_message: "Add Provenance files"
           repo: ${{ github.repository }}
-          branch: ${{ matrix.image.name }}-${{ github.run_number }}
+          branch: 'main'
           # branch: ${{ matrix.image.name }}-${{ github.run_number }}
           file_pattern: "*.md *.json"
         env:
