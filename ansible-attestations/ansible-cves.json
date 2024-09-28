@@ -1,6 +1,6 @@
 {
   "SchemaVersion": 2,
-  "CreatedAt": "2024-09-27T08:14:42.703667002Z",
+  "CreatedAt": "2024-09-28T08:13:20.690897629Z",
   "ArtifactName": "ghcr.io/open-containers/ansible:v1.0.0",
   "ArtifactType": "container_image",
   "Metadata": {
@@ -8,24 +8,24 @@
       "Family": "wolfi",
       "Name": "20230201"
     },
-    "ImageID": "sha256:135a4035071321defb188ea91505f9138d4d9ca11d6b596231b041fddfb32248",
+    "ImageID": "sha256:799bc4f33d8111d8b84dd1be11b3fd09404fa93bc51248802b9bbcf3fbc0d898",
     "DiffIDs": [
       "sha256:9098ca1bcd7b673be8f5380c0703438b3c7ffb4c779e8ffe8abe715ec0c9526c",
-      "sha256:bb0fcc7f29ad492a1245126a575052bc23f9e751dea0592dc457ebc2e7b2f402",
-      "sha256:cd014c4fb3d8658cb0d4850aab045fc95536411ccec01caf8a34bb4f82e36b4b",
-      "sha256:6ff3176f9d723346a2e5baf5de4f0367b01c97909a58199a3c09e66b10e199bd",
+      "sha256:aa4e553edad8c794c901555cbd1cf42eac741a5122526ab91cd8b778c2bb74cc",
+      "sha256:97bd9b3fa84a99136e00c8d693560b48e13fc867b00291281d18f57aa469595e",
+      "sha256:79e51ed9bd3372380ac8baa4ce9bcf2a23b44ef30e301ab9d8a49a9fe1e1acfe",
       "sha256:5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef"
     ],
     "RepoTags": [
       "ghcr.io/open-containers/ansible:v1.0.0"
     ],
     "RepoDigests": [
-      "ghcr.io/open-containers/ansible@sha256:8ef7cdfbc81a913ffd443b07bcb5fd6bd770a0f3b554441599860d48cfe7cc52"
+      "ghcr.io/open-containers/ansible@sha256:2198cf966af41df9f11843cb20c4c6bf0909844b71e5d86164823232c8873c06"
     ],
     "ImageConfig": {
       "architecture": "amd64",
       "author": "github.com/chainguard-dev/apko",
-      "created": "2024-09-27T06:30:37.112162901Z",
+      "created": "2024-09-28T06:27:31.067977385Z",
       "history": [
         {
           "author": "apko",
@@ -34,34 +34,34 @@
           "comment": "This is an apko single-layer image"
         },
         {
-          "created": "2024-09-27T06:30:12.025208658Z",
+          "created": "2024-09-28T06:27:05.713062406Z",
           "created_by": "RUN /bin/sh -c apk update \u0026\u0026 apk add curl \u0026\u0026 apk add --update python3 py3-pip # buildkit",
           "comment": "buildkit.dockerfile.v0"
         },
         {
-          "created": "2024-09-27T06:30:12.11453099Z",
+          "created": "2024-09-28T06:27:05.794193939Z",
           "created_by": "RUN /bin/sh -c addgroup -S ansible \u0026\u0026 adduser -S ansible -G ansible # buildkit",
           "comment": "buildkit.dockerfile.v0"
         },
         {
-          "created": "2024-09-27T06:30:36.797028263Z",
+          "created": "2024-09-28T06:27:30.742335163Z",
           "created_by": "USER ansible",
           "comment": "buildkit.dockerfile.v0",
           "empty_layer": true
         },
         {
-          "created": "2024-09-27T06:30:36.797028263Z",
+          "created": "2024-09-28T06:27:30.742335163Z",
           "created_by": "RUN /bin/sh -c python3 -m pip install --user ansible # buildkit",
           "comment": "buildkit.dockerfile.v0"
         },
         {
-          "created": "2024-09-27T06:30:36.797028263Z",
+          "created": "2024-09-28T06:27:30.742335163Z",
           "created_by": "ENV PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/home/ansible/.local/bin",
           "comment": "buildkit.dockerfile.v0",
           "empty_layer": true
         },
         {
-          "created": "2024-09-27T06:30:37.112162901Z",
+          "created": "2024-09-28T06:27:31.067977385Z",
           "created_by": "WORKDIR /home/ansible",
           "comment": "buildkit.dockerfile.v0"
         }
@@ -71,9 +71,9 @@
         "type": "layers",
         "diff_ids": [
           "sha256:9098ca1bcd7b673be8f5380c0703438b3c7ffb4c779e8ffe8abe715ec0c9526c",
-          "sha256:bb0fcc7f29ad492a1245126a575052bc23f9e751dea0592dc457ebc2e7b2f402",
-          "sha256:cd014c4fb3d8658cb0d4850aab045fc95536411ccec01caf8a34bb4f82e36b4b",
-          "sha256:6ff3176f9d723346a2e5baf5de4f0367b01c97909a58199a3c09e66b10e199bd",
+          "sha256:aa4e553edad8c794c901555cbd1cf42eac741a5122526ab91cd8b778c2bb74cc",
+          "sha256:97bd9b3fa84a99136e00c8d693560b48e13fc867b00291281d18f57aa469595e",
+          "sha256:79e51ed9bd3372380ac8baa4ce9bcf2a23b44ef30e301ab9d8a49a9fe1e1acfe",
           "sha256:5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef"
         ]
       },
@@ -119,8 +119,8 @@
           "InstalledVersion": "2.17.4",
           "Status": "affected",
           "Layer": {
-            "Digest": "sha256:62842473c8af70942c56bc3a63deb787716368e18ae845ba8ad1a2f0d3cb218d",
-            "DiffID": "sha256:6ff3176f9d723346a2e5baf5de4f0367b01c97909a58199a3c09e66b10e199bd"
+            "Digest": "sha256:2b653735300312e2bfe898f1f652d238217ee8eae811224ec3b0b32212074620",
+            "DiffID": "sha256:79e51ed9bd3372380ac8baa4ce9bcf2a23b44ef30e301ab9d8a49a9fe1e1acfe"
           },
           "SeveritySource": "ghsa",
           "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2024-8775",
@@ -158,69 +158,6 @@
           ],
           "PublishedDate": "2024-09-14T03:15:08.987Z",
           "LastModifiedDate": "2024-09-14T11:47:14.677Z"
-        }
-      ]
-    },
-    {
-      "Target": "/home/ansible/.local/lib/python3.12/site-packages/ansible_collections/netapp/storagegrid/plugins/modules/na_sg_grid_certificate.py",
-      "Class": "secret",
-      "Secrets": [
-        {
-          "RuleID": "private-key",
-          "Category": "AsymmetricPrivateKey",
-          "Severity": "HIGH",
-          "Title": "Asymmetric Private Key",
-          "StartLine": 68,
-          "EndLine": 68,
-          "Code": {
-            "Lines": [
-              {
-                "Number": 66,
-                "Content": "        -----END CERTIFICATE-----",
-                "IsCause": false,
-                "Annotation": "",
-                "Truncated": false,
-                "Highlighted": "        -----END CERTIFICATE-----",
-                "FirstCause": false,
-                "LastCause": false
-              },
-              {
-                "Number": 67,
-                "Content": "      private_key: |",
-                "IsCause": false,
-                "Annotation": "",
-                "Truncated": false,
-                "Highlighted": "      private_key: |",
-                "FirstCause": false,
-                "LastCause": false
-              },
-              {
-                "Number": 68,
-                "Content": "        -----BEGIN PRIVATE KEY-----*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************-----END PRIVATE KEY-----",
-                "IsCause": true,
-                "Annotation": "",
-                "Truncated": false,
-                "Highlighted": "        -----BEGIN PRIVATE KEY-----*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************-----END PRIVATE KEY-----",
-                "FirstCause": true,
-                "LastCause": true
-              },
-              {
-                "Number": 69,
-                "Content": "",
-                "IsCause": false,
-                "Annotation": "",
-                "Truncated": false,
-                "FirstCause": false,
-                "LastCause": false
-              }
-            ]
-          },
-          "Match": "   -----BEGIN PRIVATE KEY-----*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************-----END PRIVATE KEY",
-          "Layer": {
-            "Digest": "sha256:62842473c8af70942c56bc3a63deb787716368e18ae845ba8ad1a2f0d3cb218d",
-            "DiffID": "sha256:6ff3176f9d723346a2e5baf5de4f0367b01c97909a58199a3c09e66b10e199bd",
-            "CreatedBy": "RUN /bin/sh -c python3 -m pip install --user ansible # buildkit"
-          }
         }
       ]
     },
@@ -281,72 +218,8 @@
           },
           "Match": "      access_key: ********************",
           "Layer": {
-            "Digest": "sha256:62842473c8af70942c56bc3a63deb787716368e18ae845ba8ad1a2f0d3cb218d",
-            "DiffID": "sha256:6ff3176f9d723346a2e5baf5de4f0367b01c97909a58199a3c09e66b10e199bd",
-            "CreatedBy": "RUN /bin/sh -c python3 -m pip install --user ansible # buildkit"
-          }
-        }
-      ]
-    },
-    {
-      "Target": "/home/ansible/.local/lib/python3.12/site-packages/ansible_collections/google/cloud/plugins/modules/gcp_compute_ssl_certificate.py",
-      "Class": "secret",
-      "Secrets": [
-        {
-          "RuleID": "private-key",
-          "Category": "AsymmetricPrivateKey",
-          "Severity": "HIGH",
-          "Title": "Asymmetric Private Key",
-          "StartLine": 163,
-          "EndLine": 163,
-          "Code": {
-            "Lines": [
-              {
-                "Number": 161,
-                "Content": "      -----END CERTIFICATE-----",
-                "IsCause": false,
-                "Annotation": "",
-                "Truncated": false,
-                "Highlighted": "      -----END CERTIFICATE-----",
-                "FirstCause": false,
-                "LastCause": false
-              },
-              {
-                "Number": 162,
-                "Content": "    private_key: |-",
-                "IsCause": false,
-                "Annotation": "",
-                "Truncated": false,
-                "Highlighted": "    private_key: |-",
-                "FirstCause": false,
-                "LastCause": false
-              },
-              {
-                "Number": 163,
-                "Content": "      -----BEGIN EC PRIVATE KEY-----************************************************************************************************************************************************************************************************-----END EC PRIVATE KEY-----",
-                "IsCause": true,
-                "Annotation": "",
-                "Truncated": false,
-                "Highlighted": "      -----BEGIN EC PRIVATE KEY-----************************************************************************************************************************************************************************************************-----END EC PRIVATE KEY-----",
-                "FirstCause": true,
-                "LastCause": true
-              },
-              {
-                "Number": 164,
-                "Content": "    project: test_project",
-                "IsCause": false,
-                "Annotation": "",
-                "Truncated": false,
-                "Highlighted": "    project: test_project",
-                "FirstCause": false,
-                "LastCause": false
-              }
-            ]
-          },
-          "Match": "-----BEGIN EC PRIVATE KEY-----************************************************************************************************************************************************************************************************-----END EC PRIVATE ",
-          "Layer": {
-            "Digest": "sha256:62842473c8af70942c56bc3a63deb787716368e18ae845ba8ad1a2f0d3cb218d",
-            "DiffID": "sha256:6ff3176f9d723346a2e5baf5de4f0367b01c97909a58199a3c09e66b10e199bd",
+            "Digest": "sha256:2b653735300312e2bfe898f1f652d238217ee8eae811224ec3b0b32212074620",
+            "DiffID": "sha256:79e51ed9bd3372380ac8baa4ce9bcf2a23b44ef30e301ab9d8a49a9fe1e1acfe",
             "CreatedBy": "RUN /bin/sh -c python3 -m pip install --user ansible # buildkit"
           }
         }
@@ -409,15 +282,15 @@
           },
           "Match": "        -----BEGIN RSA PRIVATE KEY-----*********-----END RSA PRIVATE KEY-----'",
           "Layer": {
-            "Digest": "sha256:62842473c8af70942c56bc3a63deb787716368e18ae845ba8ad1a2f0d3cb218d",
-            "DiffID": "sha256:6ff3176f9d723346a2e5baf5de4f0367b01c97909a58199a3c09e66b10e199bd",
+            "Digest": "sha256:2b653735300312e2bfe898f1f652d238217ee8eae811224ec3b0b32212074620",
+            "DiffID": "sha256:79e51ed9bd3372380ac8baa4ce9bcf2a23b44ef30e301ab9d8a49a9fe1e1acfe",
             "CreatedBy": "RUN /bin/sh -c python3 -m pip install --user ansible # buildkit"
           }
         }
       ]
     },
     {
-      "Target": "/home/ansible/.local/lib/python3.12/site-packages/ansible_collections/google/cloud/plugins/modules/gcp_compute_region_target_https_proxy.py",
+      "Target": "/home/ansible/.local/lib/python3.12/site-packages/ansible_collections/google/cloud/plugins/modules/gcp_compute_ssl_certificate.py",
       "Class": "secret",
       "Secrets": [
         {
@@ -425,12 +298,12 @@
           "Category": "AsymmetricPrivateKey",
           "Severity": "HIGH",
           "Title": "Asymmetric Private Key",
-          "StartLine": 223,
-          "EndLine": 223,
+          "StartLine": 163,
+          "EndLine": 163,
           "Code": {
             "Lines": [
               {
-                "Number": 221,
+                "Number": 161,
                 "Content": "      -----END CERTIFICATE-----",
                 "IsCause": false,
                 "Annotation": "",
@@ -440,7 +313,7 @@
                 "LastCause": false
               },
               {
-                "Number": 222,
+                "Number": 162,
                 "Content": "    private_key: |-",
                 "IsCause": false,
                 "Annotation": "",
@@ -450,7 +323,7 @@
                 "LastCause": false
               },
               {
-                "Number": 223,
+                "Number": 163,
                 "Content": "      -----BEGIN EC PRIVATE KEY-----************************************************************************************************************************************************************************************************-----END EC PRIVATE KEY-----",
                 "IsCause": true,
                 "Annotation": "",
@@ -460,12 +333,12 @@
                 "LastCause": true
               },
               {
-                "Number": 224,
-                "Content": "    project: \"{{ gcp_project }}\"",
+                "Number": 164,
+                "Content": "    project: test_project",
                 "IsCause": false,
                 "Annotation": "",
                 "Truncated": false,
-                "Highlighted": "    project: \"{{ gcp_project }}\"",
+                "Highlighted": "    project: test_project",
                 "FirstCause": false,
                 "LastCause": false
               }
@@ -473,8 +346,8 @@
           },
           "Match": "-----BEGIN EC PRIVATE KEY-----************************************************************************************************************************************************************************************************-----END EC PRIVATE ",
           "Layer": {
-            "Digest": "sha256:62842473c8af70942c56bc3a63deb787716368e18ae845ba8ad1a2f0d3cb218d",
-            "DiffID": "sha256:6ff3176f9d723346a2e5baf5de4f0367b01c97909a58199a3c09e66b10e199bd",
+            "Digest": "sha256:2b653735300312e2bfe898f1f652d238217ee8eae811224ec3b0b32212074620",
+            "DiffID": "sha256:79e51ed9bd3372380ac8baa4ce9bcf2a23b44ef30e301ab9d8a49a9fe1e1acfe",
             "CreatedBy": "RUN /bin/sh -c python3 -m pip install --user ansible # buildkit"
           }
         }
@@ -537,8 +410,8 @@
           },
           "Match": "-----BEGIN EC PRIVATE KEY-----************************************************************************************************************************************************************************************************-----END EC PRIVATE ",
           "Layer": {
-            "Digest": "sha256:62842473c8af70942c56bc3a63deb787716368e18ae845ba8ad1a2f0d3cb218d",
-            "DiffID": "sha256:6ff3176f9d723346a2e5baf5de4f0367b01c97909a58199a3c09e66b10e199bd",
+            "Digest": "sha256:2b653735300312e2bfe898f1f652d238217ee8eae811224ec3b0b32212074620",
+            "DiffID": "sha256:79e51ed9bd3372380ac8baa4ce9bcf2a23b44ef30e301ab9d8a49a9fe1e1acfe",
             "CreatedBy": "RUN /bin/sh -c python3 -m pip install --user ansible # buildkit"
           }
         }
@@ -601,8 +474,8 @@
           },
           "Match": "-----BEGIN EC PRIVATE KEY-----************************************************************************************************************************************************************************************************-----END EC PRIVATE ",
           "Layer": {
-            "Digest": "sha256:62842473c8af70942c56bc3a63deb787716368e18ae845ba8ad1a2f0d3cb218d",
-            "DiffID": "sha256:6ff3176f9d723346a2e5baf5de4f0367b01c97909a58199a3c09e66b10e199bd",
+            "Digest": "sha256:2b653735300312e2bfe898f1f652d238217ee8eae811224ec3b0b32212074620",
+            "DiffID": "sha256:79e51ed9bd3372380ac8baa4ce9bcf2a23b44ef30e301ab9d8a49a9fe1e1acfe",
             "CreatedBy": "RUN /bin/sh -c python3 -m pip install --user ansible # buildkit"
           }
         }
@@ -665,8 +538,8 @@
           },
           "Match": ": \"-----BEGIN PRIVATE KEY-----***********************************-----END PRIVATE KEY",
           "Layer": {
-            "Digest": "sha256:62842473c8af70942c56bc3a63deb787716368e18ae845ba8ad1a2f0d3cb218d",
-            "DiffID": "sha256:6ff3176f9d723346a2e5baf5de4f0367b01c97909a58199a3c09e66b10e199bd",
+            "Digest": "sha256:2b653735300312e2bfe898f1f652d238217ee8eae811224ec3b0b32212074620",
+            "DiffID": "sha256:79e51ed9bd3372380ac8baa4ce9bcf2a23b44ef30e301ab9d8a49a9fe1e1acfe",
             "CreatedBy": "RUN /bin/sh -c python3 -m pip install --user ansible # buildkit"
           }
         }
@@ -729,8 +602,135 @@
           },
           "Match": "----BEGIN RSA PRIVATE KEY-----************************************************************************************************************************************************-----END RSA PRIVATE",
           "Layer": {
-            "Digest": "sha256:62842473c8af70942c56bc3a63deb787716368e18ae845ba8ad1a2f0d3cb218d",
-            "DiffID": "sha256:6ff3176f9d723346a2e5baf5de4f0367b01c97909a58199a3c09e66b10e199bd",
+            "Digest": "sha256:2b653735300312e2bfe898f1f652d238217ee8eae811224ec3b0b32212074620",
+            "DiffID": "sha256:79e51ed9bd3372380ac8baa4ce9bcf2a23b44ef30e301ab9d8a49a9fe1e1acfe",
+            "CreatedBy": "RUN /bin/sh -c python3 -m pip install --user ansible # buildkit"
+          }
+        }
+      ]
+    },
+    {
+      "Target": "/home/ansible/.local/lib/python3.12/site-packages/ansible_collections/google/cloud/plugins/modules/gcp_compute_region_target_https_proxy.py",
+      "Class": "secret",
+      "Secrets": [
+        {
+          "RuleID": "private-key",
+          "Category": "AsymmetricPrivateKey",
+          "Severity": "HIGH",
+          "Title": "Asymmetric Private Key",
+          "StartLine": 223,
+          "EndLine": 223,
+          "Code": {
+            "Lines": [
+              {
+                "Number": 221,
+                "Content": "      -----END CERTIFICATE-----",
+                "IsCause": false,
+                "Annotation": "",
+                "Truncated": false,
+                "Highlighted": "      -----END CERTIFICATE-----",
+                "FirstCause": false,
+                "LastCause": false
+              },
+              {
+                "Number": 222,
+                "Content": "    private_key: |-",
+                "IsCause": false,
+                "Annotation": "",
+                "Truncated": false,
+                "Highlighted": "    private_key: |-",
+                "FirstCause": false,
+                "LastCause": false
+              },
+              {
+                "Number": 223,
+                "Content": "      -----BEGIN EC PRIVATE KEY-----************************************************************************************************************************************************************************************************-----END EC PRIVATE KEY-----",
+                "IsCause": true,
+                "Annotation": "",
+                "Truncated": false,
+                "Highlighted": "      -----BEGIN EC PRIVATE KEY-----************************************************************************************************************************************************************************************************-----END EC PRIVATE KEY-----",
+                "FirstCause": true,
+                "LastCause": true
+              },
+              {
+                "Number": 224,
+                "Content": "    project: \"{{ gcp_project }}\"",
+                "IsCause": false,
+                "Annotation": "",
+                "Truncated": false,
+                "Highlighted": "    project: \"{{ gcp_project }}\"",
+                "FirstCause": false,
+                "LastCause": false
+              }
+            ]
+          },
+          "Match": "-----BEGIN EC PRIVATE KEY-----************************************************************************************************************************************************************************************************-----END EC PRIVATE ",
+          "Layer": {
+            "Digest": "sha256:2b653735300312e2bfe898f1f652d238217ee8eae811224ec3b0b32212074620",
+            "DiffID": "sha256:79e51ed9bd3372380ac8baa4ce9bcf2a23b44ef30e301ab9d8a49a9fe1e1acfe",
+            "CreatedBy": "RUN /bin/sh -c python3 -m pip install --user ansible # buildkit"
+          }
+        }
+      ]
+    },
+    {
+      "Target": "/home/ansible/.local/lib/python3.12/site-packages/ansible_collections/netapp/storagegrid/plugins/modules/na_sg_grid_certificate.py",
+      "Class": "secret",
+      "Secrets": [
+        {
+          "RuleID": "private-key",
+          "Category": "AsymmetricPrivateKey",
+          "Severity": "HIGH",
+          "Title": "Asymmetric Private Key",
+          "StartLine": 68,
+          "EndLine": 68,
+          "Code": {
+            "Lines": [
+              {
+                "Number": 66,
+                "Content": "        -----END CERTIFICATE-----",
+                "IsCause": false,
+                "Annotation": "",
+                "Truncated": false,
+                "Highlighted": "        -----END CERTIFICATE-----",
+                "FirstCause": false,
+                "LastCause": false
+              },
+              {
+                "Number": 67,
+                "Content": "      private_key: |",
+                "IsCause": false,
+                "Annotation": "",
+                "Truncated": false,
+                "Highlighted": "      private_key: |",
+                "FirstCause": false,
+                "LastCause": false
+              },
+              {
+                "Number": 68,
+                "Content": "        -----BEGIN PRIVATE KEY-----*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************-----END PRIVATE KEY-----",
+                "IsCause": true,
+                "Annotation": "",
+                "Truncated": false,
+                "Highlighted": "        -----BEGIN PRIVATE KEY-----*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************-----END PRIVATE KEY-----",
+                "FirstCause": true,
+                "LastCause": true
+              },
+              {
+                "Number": 69,
+                "Content": "",
+                "IsCause": false,
+                "Annotation": "",
+                "Truncated": false,
+                "FirstCause": false,
+                "LastCause": false
+              }
+            ]
+          },
+          "Match": "   -----BEGIN PRIVATE KEY-----*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************-----END PRIVATE KEY",
+          "Layer": {
+            "Digest": "sha256:2b653735300312e2bfe898f1f652d238217ee8eae811224ec3b0b32212074620",
+            "DiffID": "sha256:79e51ed9bd3372380ac8baa4ce9bcf2a23b44ef30e301ab9d8a49a9fe1e1acfe",
             "CreatedBy": "RUN /bin/sh -c python3 -m pip install --user ansible # buildkit"
           }
         }
