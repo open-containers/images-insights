@@ -3,8 +3,10 @@ name: image-insights
 on:
   # The schedule will trigger at 0900 UTC timezone
   schedule:
-    - cron: "0 08 * * *"
-
+    - cron: "0 07 * * *"
+  # push:
+  #   branches:
+  #     - main
 
 permissions:
   packages: write
@@ -76,11 +78,15 @@ jobs:
         run: |
           go run ./insights_scripts/main.go -sbom ./ansible-attestations/ansible-sbom.json
 
+      - name: Stage files
+        run: |
+          git add .
+
       - uses: planetscale/ghcommit-action@v0.1.6
         with:
           commit_message: "Add Provenance files"
           repo: ${{ github.repository }}
-          branch: 'main'
+          branch: "main"
           # branch: ${{ matrix.image.name }}-${{ github.run_number }}
         env:
           GITHUB_TOKEN: ${{secrets.GHCR_PAT}}
