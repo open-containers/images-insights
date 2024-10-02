@@ -16,7 +16,7 @@
 | apk-tools | GPL-2.0-only | NOASSERTION | 2.14.4-r0 |
 | autocommand | LicenseRef-LGPLv3 | Person: Nathan West | 2.2.2 |
 | backports.tarfile | NOASSERTION | Person: \"Jason R. Coombs\" \u003cjaraco@jaraco.com\u003e | 1.2.0 |
-| busybox | GPL-2.0-only | NOASSERTION | 1.36.1-r11 |
+| busybox | GPL-2.0-only | NOASSERTION | 1.37.0-r0 |
 | ca-certificates-bundle | (MPL-2.0 AND MIT) | NOASSERTION | 20240705-r0 |
 | cffi | MIT | Person: Armin Rigo, Maciej Fijalkowski (python-cffi@googlegroups.com) | 1.17.1 |
 | cryptography | (Apache-2.0 OR BSD-3-Clause) | Person: The cryptography developers \u003ccryptography-dev@python.org\u003e (The Python Cryptographic Authority and individual contributors \u003ccryptography-dev@python.org\u003e) | 43.0.1 |
@@ -68,8 +68,8 @@
 | py3.12-pip-base | MIT | NOASSERTION | 24.2-r4 |
 | py3.12-setuptools | MIT | NOASSERTION | 75.1.0-r2 |
 | pycparser | BSD-3-Clause | Person: Eli Bendersky (eliben@gmail.com) | 2.22 |
-| python-3.12 | PSF-2.0 | NOASSERTION | 3.12.6-r2 |
-| python-3.12-base | PSF-2.0 | NOASSERTION | 3.12.6-r2 |
+| python-3.12 | PSF-2.0 | NOASSERTION | 3.12.7-r0 |
+| python-3.12-base | PSF-2.0 | NOASSERTION | 3.12.7-r0 |
 | readline | GPL-3.0-or-later | NOASSERTION | 8.2.13-r0 |
 | resolvelib | LicenseRef-ISC-License | Person: Tzu-ping Chung (uranusjr@gmail.com) | 1.0.1 |
 | setuptools | NOASSERTION | Person: Python Packaging Authority \u003cdistutils-sig@python.org\u003e | 75.1.0.post20240925 |
@@ -81,7 +81,7 @@
 | wolfi-base | MIT | NOASSERTION | 1-r6 |
 | wolfi-baselayout | MIT | NOASSERTION | 20230201-r15 |
 | wolfi-keys | MIT | NOASSERTION | 1-r8 |
-| xz | GPL-3.0-or-later | NOASSERTION | 5.6.2-r0 |
+| xz | GPL-3.0-or-later | NOASSERTION | 5.6.3-r0 |
 | zipp | NOASSERTION | Person: \"Jason R. Coombs\" \u003cjaraco@jaraco.com\u003e | 3.19.2 |
 | zlib | (MPL-2.0 AND MIT) | NOASSERTION | 1.3.1-r4 |
 | sbom |  | NOASSERTION |  |
