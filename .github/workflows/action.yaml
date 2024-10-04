@@ -3,7 +3,7 @@ name: image-insights
 on:
   # The schedule will trigger at 0900 UTC timezone
   schedule:
-    - cron: "0 08 * * *"
+    - cron: "0 12 * * *"
   # push:
   #   branches:
   #     - main
@@ -70,9 +70,7 @@ jobs:
           image-ref: ${{env.REGISTRY}}/${{ env.ORG }}/${{ matrix.image.name }}:v1.0.0
           format: "json"
           output: ./${{ matrix.image.name }}-attestations/${{ matrix.image.name }}-cves.json
-        env:
-          TRIVY_USERNAME: ${{ github.actor }}
-          TRIVY_PASSWORD: ${{ secrets.GHCR_PAT }}
+          github-pat: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Export SBOM in markdown
         run: |
