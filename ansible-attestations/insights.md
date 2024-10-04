@@ -17,14 +17,16 @@
 | autocommand | LicenseRef-LGPLv3 | Person: Nathan West | 2.2.2 |
 | backports.tarfile | NOASSERTION | Person: \"Jason R. Coombs\" \u003cjaraco@jaraco.com\u003e | 1.2.0 |
 | busybox | GPL-2.0-only | NOASSERTION | 1.37.0-r0 |
-| ca-certificates-bundle | (MPL-2.0 AND MIT) | NOASSERTION | 20240705-r0 |
+| ca-certificates-bundle | (MPL-2.0 AND MIT) | NOASSERTION | 20240705-r1 |
 | cffi | MIT | Person: Armin Rigo, Maciej Fijalkowski (python-cffi@googlegroups.com) | 1.17.1 |
 | cryptography | (Apache-2.0 OR BSD-3-Clause) | Person: The cryptography developers \u003ccryptography-dev@python.org\u003e (The Python Cryptographic Authority and individual contributors \u003ccryptography-dev@python.org\u003e) | 43.0.1 |
-| curl | MIT | NOASSERTION | 8.10.1-r0 |
+| curl | MIT | NOASSERTION | 8.10.1-r1 |
+| cyrus-sasl | BSD-3-Clause | NOASSERTION | 2.1.28-r3 |
 | gdbm | GPL-3.0-or-later | NOASSERTION | 1.24-r0 |
 | glibc | LGPL-2.1-or-later | NOASSERTION | 2.40-r2 |
 | glibc-locale-posix | LGPL-2.1-or-later | NOASSERTION | 2.40-r2 |
 | grafana-ansible-collection | ISC | NOASSERTION | 2.1.4 |
+| heimdal | BSD-3-Clause | NOASSERTION | 7.8.0-r6 |
 | importlib_metadata | NOASSERTION | Person: \"Jason R. Coombs\" \u003cjaraco@jaraco.com\u003e | 8.0.0 |
 | importlib_resources | NOASSERTION | Person: Barry Warsaw (barry@python.org) | 6.4.0 |
 | inflect | NOASSERTION | Person: Paul Dyson \u003cpwdyson@yahoo.com\u003e | 7.3.1 |
@@ -42,11 +44,13 @@
 | libcom_err | (GPL-2.0-or-later AND LGPL-2.0-or-later AND BSD-3-Clause AND MIT) | NOASSERTION | 1.47.1-r0 |
 | libcrypt1 | LGPL-2.1-or-later | NOASSERTION | 2.40-r2 |
 | libcrypto3 | Apache-2.0 | NOASSERTION | 3.3.2-r0 |
-| libcurl-openssl4 | MIT | NOASSERTION | 8.10.1-r0 |
+| libcurl-openssl4 | MIT | NOASSERTION | 8.10.1-r1 |
+| libevent | BSD-3-Clause | NOASSERTION | 2.1.12-r6 |
 | libexpat1 | MIT | NOASSERTION | 2.6.3-r0 |
 | libffi | MIT | NOASSERTION | 3.4.6-r4 |
 | libgcc | (GPL-3.0-or-later WITH GCC-exception-3.1) | NOASSERTION | 14.2.0-r3 |
 | libidn2 | (GPL-2.0-or-later AND LGPL-3.0-or-later) | NOASSERTION | 2.3.7-r2 |
+| libldap | OLDAP-2.8 | NOASSERTION | 2.6.8-r5 |
 | libnghttp2-14 | MIT | NOASSERTION | 1.63.0-r0 |
 | libpsl | MIT | NOASSERTION | 0.21.5-r3 |
 | libssl3 | Apache-2.0 | NOASSERTION | 3.3.2-r0 |
