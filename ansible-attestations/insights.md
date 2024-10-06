@@ -1,6 +1,6 @@
 ## SBOM Insights
 
-| Version | Package Name | License | Source |
+| License | Source | Version | Package Name |
 |---|---|---|---|
 | Jinja2 | NOASSERTION | NOASSERTION | 3.1.4 |
 | MarkupSafe | BSD-3-Clause | NOASSERTION | 2.1.5 |

@@ -189,7 +189,7 @@
   },
   "buildType": "https://mobyproject.org/buildkit@v1",
   "builder": {
-    "id": "https://github.com/open-containers/ansible-image/actions/runs/11191109585/attempts/1"
+    "id": "https://github.com/open-containers/ansible-image/actions/runs/11199614273/attempts/1"
   },
   "invocation": {
     "configSource": {
@@ -225,9 +225,9 @@
     }
   ],
   "metadata": {
-    "buildFinishedOn": "2024-10-05T06:28:21.964652587Z",
-    "buildInvocationID": "fk3c7wkqkvb2wfumdhw7548d2",
-    "buildStartedOn": "2024-10-05T06:27:26.644837528Z",
+    "buildFinishedOn": "2024-10-06T06:28:07.904298366Z",
+    "buildInvocationID": "5mhacnir17e7tkft07n23hu7i",
+    "buildStartedOn": "2024-10-06T06:27:16.216378461Z",
     "completeness": {
       "environment": true,
       "materials": false,
@@ -252,9 +252,9 @@
               "size": 6732585
             },
             {
-              "digest": "sha256:13645a229bbc2b83589fc85bc531e55283d18c8d5f06e120b19598c2210edba6",
+              "digest": "sha256:ef0b83ec7156cfc48beedd54e9d8c8abd86e5990dbd9949d7df5c0cb7e804618",
               "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
-              "size": 36445091
+              "size": 36447767
             }
           ]
         ],
@@ -266,14 +266,14 @@
               "size": 6732585
             },
             {
-              "digest": "sha256:13645a229bbc2b83589fc85bc531e55283d18c8d5f06e120b19598c2210edba6",
+              "digest": "sha256:ef0b83ec7156cfc48beedd54e9d8c8abd86e5990dbd9949d7df5c0cb7e804618",
               "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
-              "size": 36445091
+              "size": 36447767
             },
             {
-              "digest": "sha256:bb9e540e005a135450522cbca0ee1d3914e68a0e2b8ddb5e179049f565373ebd",
+              "digest": "sha256:0c2858bde953c08cbe3404fae2d15ece9860faa4839e5600bf966b43fe00281f",
               "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
-              "size": 1088
+              "size": 1086
             }
           ]
         ],
@@ -285,19 +285,19 @@
               "size": 6732585
             },
             {
-              "digest": "sha256:13645a229bbc2b83589fc85bc531e55283d18c8d5f06e120b19598c2210edba6",
+              "digest": "sha256:ef0b83ec7156cfc48beedd54e9d8c8abd86e5990dbd9949d7df5c0cb7e804618",
               "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
-              "size": 36445091
+              "size": 36447767
             },
             {
-              "digest": "sha256:bb9e540e005a135450522cbca0ee1d3914e68a0e2b8ddb5e179049f565373ebd",
+              "digest": "sha256:0c2858bde953c08cbe3404fae2d15ece9860faa4839e5600bf966b43fe00281f",
               "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
-              "size": 1088
+              "size": 1086
             },
             {
-              "digest": "sha256:3a3a1fa755dd721cad4c144465193b4556ef2d26e8b7a731a630c620dddeeb06",
+              "digest": "sha256:a4994e510fa9ac3f351d5319a6925842935b7cf35b5be24c493c74e1892622b6",
               "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
-              "size": 126458169
+              "size": 126461227
             }
           ]
         ],
@@ -309,19 +309,19 @@
               "size": 6732585
             },
             {
-              "digest": "sha256:13645a229bbc2b83589fc85bc531e55283d18c8d5f06e120b19598c2210edba6",
+              "digest": "sha256:ef0b83ec7156cfc48beedd54e9d8c8abd86e5990dbd9949d7df5c0cb7e804618",
               "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
-              "size": 36445091
+              "size": 36447767
             },
             {
-              "digest": "sha256:bb9e540e005a135450522cbca0ee1d3914e68a0e2b8ddb5e179049f565373ebd",
+              "digest": "sha256:0c2858bde953c08cbe3404fae2d15ece9860faa4839e5600bf966b43fe00281f",
               "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
-              "size": 1088
+              "size": 1086
             },
             {
-              "digest": "sha256:3a3a1fa755dd721cad4c144465193b4556ef2d26e8b7a731a630c620dddeeb06",
+              "digest": "sha256:a4994e510fa9ac3f351d5319a6925842935b7cf35b5be24c493c74e1892622b6",
               "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
-              "size": 126458169
+              "size": 126461227
             },
             {
               "digest": "sha256:4f4fb700ef54461cfa02571ae0db9a0dc1e0cdb5577484a6d75e68dc38e8acc1",
@@ -336,8 +336,8 @@
           {
             "data": "CkZST00gY2dyLmRldi9jaGFpbmd1YXJkL3dvbGZpLWJhc2U6bGF0ZXN0IEFTIGJ1aWxkCgpSVU4gYXBrIHVwZGF0ZSAmJiBhcGsgYWRkIGN1cmwgJiYgYXBrIGFkZCAtLXVwZGF0ZSBweXRob24zIHB5My1waXAKClJVTiBhZGRncm91cCAtUyBhbnNpYmxlICYmIGFkZHVzZXIgLVMgYW5zaWJsZSAtRyBhbnNpYmxlCgpVU0VSIGFuc2libGUKClJVTiBweXRob24zIC1tIHBpcCBpbnN0YWxsIC0tdXNlciBhbnNpYmxlCgpFTlYgUEFUSD0iJFBBVEg6L2hvbWUvYW5zaWJsZS8ubG9jYWwvYmluIgoKV09SS0RJUiAvaG9tZS9hbnNpYmxlCgo=",
             "digestMapping": {
-              "sha256:27d412aa59e5a3bca13b53fc08879d1b980881043f55e698f56d03180a8e2c19": "step0",
-              "sha256:b8a454989d0b53d8142e8408bbbf802561c3f2f63e356e7e5ef6d7c07e3e7776": "step1"
+              "sha256:1af276bec413990826c4c5189d4d6c9c94392efb1477e31116e7f0071e056e45": "step1",
+              "sha256:ab097e629d35e861b752ea6c4547ffa2502b10e0d3933ab13a208d053ab8fb47": "step0"
             },
             "filename": "Dockerfile",
             "language": "Dockerfile",
