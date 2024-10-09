@@ -1,9 +1,9 @@
 ## SBOM Insights
 
-| License | Source | Version | Package Name |
+| Version | Package Name | License | Source |
 |---|---|---|---|
 | Jinja2 | NOASSERTION | NOASSERTION | 3.1.4 |
-| MarkupSafe | BSD-3-Clause | NOASSERTION | 2.1.5 |
+| MarkupSafe | LicenseRef-b1b498e4252d9df7608dd1d20366ac9762cb408f6d400fb3410564e2c9c2a415 | NOASSERTION | 3.0.1 |
 | PyYAML | MIT | Person: Kirill Simonov (xi@resolvent.net) | 6.0.2 |
 | Simple Launcher | NOASSERTION | NOASSERTION | 1.1.0.14 |
 | Simple Launcher | NOASSERTION | NOASSERTION | 1.1.0.14 |
@@ -11,8 +11,8 @@
 | Simple Launcher | NOASSERTION | NOASSERTION | 1.1.0.14 |
 | Simple Launcher | NOASSERTION | NOASSERTION | 1.1.0.14 |
 | Simple Launcher | NOASSERTION | NOASSERTION | 1.1.0.14 |
-| ansible | GPL-3.0-or-later | Person: Ansible, Inc. (info@ansible.com) | 10.4.0 |
-| ansible-core | LicenseRef-GPLv3- | Person: Ansible, Inc. (info@ansible.com) | 2.17.4 |
+| ansible | GPL-3.0-or-later | Person: Ansible, Inc. (info@ansible.com) | 10.5.0 |
+| ansible-core | LicenseRef-GPLv3- | Person: Ansible, Inc. (info@ansible.com) | 2.17.5 |
 | apk-tools | GPL-2.0-only | NOASSERTION | 2.14.4-r0 |
 | autocommand | LicenseRef-LGPLv3 | Person: Nathan West | 2.2.2 |
 | backports.tarfile | NOASSERTION | Person: \"Jason R. Coombs\" \u003cjaraco@jaraco.com\u003e | 1.2.0 |
