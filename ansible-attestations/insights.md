@@ -1,6 +1,6 @@
 ## SBOM Insights
 
-| Version | Package Name | License | Source |
+| Package Name | License | Source | Version |
 |---|---|---|---|
 | Jinja2 | NOASSERTION | NOASSERTION | 3.1.4 |
 | MarkupSafe | LicenseRef-b1b498e4252d9df7608dd1d20366ac9762cb408f6d400fb3410564e2c9c2a415 | NOASSERTION | 3.0.1 |
@@ -61,8 +61,8 @@
 | more-itertools | NOASSERTION | Person: Erik Rose \u003cerikrose@grinchcentral.com\u003e | 10.3.0 |
 | mpdecimal | MIT | NOASSERTION | 4.0.0-r2 |
 | my-test-package | LicenseRef-UNKNOWN | Person: UNKNOWN (UNKNOWN) | 1.0 |
-| ncurses | MIT | NOASSERTION | 6.5_p20240629-r0 |
-| ncurses-terminfo-base | MIT | NOASSERTION | 6.5_p20240629-r0 |
+| ncurses | MIT | NOASSERTION | 6.5_p20240629-r1 |
+| ncurses-terminfo-base | MIT | NOASSERTION | 6.5_p20240629-r1 |
 | packaging | NOASSERTION | Person: Donald Stufft \u003cdonald@stufft.io\u003e | 24.1 |
 | packaging | NOASSERTION | Person: Donald Stufft \u003cdonald@stufft.io\u003e | 24.1 |
 | pip | MIT | Person: The pip developers \u003cdistutils-sig@python.org\u003e | 24.2 |
