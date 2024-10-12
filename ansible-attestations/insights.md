@@ -1,6 +1,6 @@
 ## SBOM Insights
 
-| Package Name | License | Source | Version |
+| Version | Package Name | License | Source |
 |---|---|---|---|
 | Jinja2 | NOASSERTION | NOASSERTION | 3.1.4 |
 | MarkupSafe | LicenseRef-b1b498e4252d9df7608dd1d20366ac9762cb408f6d400fb3410564e2c9c2a415 | NOASSERTION | 3.0.1 |
@@ -17,7 +17,7 @@
 | autocommand | LicenseRef-LGPLv3 | Person: Nathan West | 2.2.2 |
 | backports.tarfile | NOASSERTION | Person: \"Jason R. Coombs\" \u003cjaraco@jaraco.com\u003e | 1.2.0 |
 | busybox | GPL-2.0-only | NOASSERTION | 1.37.0-r0 |
-| ca-certificates-bundle | (MPL-2.0 AND MIT) | NOASSERTION | 20240705-r1 |
+| ca-certificates-bundle | (MPL-2.0 AND MIT) | NOASSERTION | 20241010-r0 |
 | cffi | MIT | Person: Armin Rigo, Maciej Fijalkowski (python-cffi@googlegroups.com) | 1.17.1 |
 | cryptography | (Apache-2.0 OR BSD-3-Clause) | Person: The cryptography developers \u003ccryptography-dev@python.org\u003e (The Python Cryptographic Authority and individual contributors \u003ccryptography-dev@python.org\u003e) | 43.0.1 |
 | curl | MIT | NOASSERTION | 8.10.1-r1 |
