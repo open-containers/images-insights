@@ -1,9 +1,9 @@
 ## SBOM Insights
 
-| Version | Package Name | License | Source |
+| Source | Version | Package Name | License |
 |---|---|---|---|
 | Jinja2 | NOASSERTION | NOASSERTION | 3.1.4 |
-| MarkupSafe | LicenseRef-b1b498e4252d9df7608dd1d20366ac9762cb408f6d400fb3410564e2c9c2a415 | NOASSERTION | 3.0.1 |
+| MarkupSafe | LicenseRef-b1b498e4252d9df7608dd1d20366ac9762cb408f6d400fb3410564e2c9c2a415 | NOASSERTION | 3.0.2 |
 | PyYAML | MIT | Person: Kirill Simonov (xi@resolvent.net) | 6.0.2 |
 | Simple Launcher | NOASSERTION | NOASSERTION | 1.1.0.14 |
 | Simple Launcher | NOASSERTION | NOASSERTION | 1.1.0.14 |
@@ -19,7 +19,7 @@
 | busybox | GPL-2.0-only | NOASSERTION | 1.37.0-r0 |
 | ca-certificates-bundle | (MPL-2.0 AND MIT) | NOASSERTION | 20241010-r0 |
 | cffi | MIT | Person: Armin Rigo, Maciej Fijalkowski (python-cffi@googlegroups.com) | 1.17.1 |
-| cryptography | (Apache-2.0 OR BSD-3-Clause) | Person: The cryptography developers \u003ccryptography-dev@python.org\u003e (The Python Cryptographic Authority and individual contributors \u003ccryptography-dev@python.org\u003e) | 43.0.1 |
+| cryptography | (Apache-2.0 OR BSD-3-Clause) | Person: The cryptography developers \u003ccryptography-dev@python.org\u003e (The Python Cryptographic Authority and individual contributors \u003ccryptography-dev@python.org\u003e) | 43.0.3 |
 | curl | MIT | NOASSERTION | 8.10.1-r1 |
 | cyrus-sasl | BSD-3-Clause | NOASSERTION | 2.1.28-r4 |
 | gdbm | GPL-3.0-or-later | NOASSERTION | 1.24-r0 |
@@ -34,7 +34,7 @@
 | jaraco.context | NOASSERTION | Person: Jason R. Coombs (jaraco@jaraco.com) | 5.3.0 |
 | jaraco.functools | NOASSERTION | Person: \"Jason R. Coombs\" \u003cjaraco@jaraco.com\u003e | 4.0.1 |
 | jaraco.text | NOASSERTION | Person: \"Jason R. Coombs\" \u003cjaraco@jaraco.com\u003e | 3.12.1 |
-| keyutils-libs | (GPL-2.0-or-later OR LGPL-2.0-or-later) | NOASSERTION | 1.6.3-r3 |
+| keyutils-libs | (GPL-2.0-or-later OR LGPL-2.0-or-later) | NOASSERTION | 1.6.3-r4 |
 | krb5-conf | MIT | NOASSERTION | 1.0-r3 |
 | krb5-libs | MIT | NOASSERTION | 1.21.3-r1 |
 | ld-linux | LGPL-2.1-or-later | NOASSERTION | 2.40-r2 |
