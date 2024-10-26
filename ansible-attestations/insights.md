@@ -55,7 +55,7 @@
 | libpsl | MIT | NOASSERTION | 0.21.5-r3 |
 | libssl3 | Apache-2.0 | NOASSERTION | 3.3.2-r2 |
 | libstdc++ | (GPL-3.0-or-later WITH GCC-exception-3.1) | NOASSERTION | 14.2.0-r3 |
-| libunistring | (GPL-2.0-or-later OR LGPL-3.0-or-later) | NOASSERTION | 1.3-r0 |
+| libunistring | (GPL-2.0-or-later OR LGPL-3.0-or-later) | NOASSERTION | 1.3-r1 |
 | libverto | MIT | NOASSERTION | 0.3.2-r4 |
 | libxcrypt | (GPL-2.0-or-later AND LGPL-2.1-or-later) | NOASSERTION | 4.4.36-r8 |
 | more-itertools | NOASSERTION | Person: Erik Rose \u003cerikrose@grinchcentral.com\u003e | 10.3.0 |
@@ -74,7 +74,7 @@
 | pycparser | BSD-3-Clause | Person: Eli Bendersky (eliben@gmail.com) | 2.22 |
 | python-3.12 | PSF-2.0 | NOASSERTION | 3.12.7-r0 |
 | python-3.12-base | PSF-2.0 | NOASSERTION | 3.12.7-r0 |
-| readline | GPL-3.0-or-later | NOASSERTION | 8.2.13-r0 |
+| readline | GPL-3.0-or-later | NOASSERTION | 8.2.13-r1 |
 | resolvelib | LicenseRef-ISC-License | Person: Tzu-ping Chung (uranusjr@gmail.com) | 1.0.1 |
 | setuptools | NOASSERTION | Person: Python Packaging Authority \u003cdistutils-sig@python.org\u003e | 75.2.0.post20241022 |
 | sqlite-libs | blessing | NOASSERTION | 3.46.1-r0 |
@@ -85,7 +85,7 @@
 | wolfi-base | MIT | NOASSERTION | 1-r6 |
 | wolfi-baselayout | MIT | NOASSERTION | 20230201-r15 |
 | wolfi-keys | MIT | NOASSERTION | 1-r8 |
-| xz | GPL-3.0-or-later | NOASSERTION | 5.6.3-r1 |
+| xz | GPL-3.0-or-later | NOASSERTION | 5.6.3-r2 |
 | zipp | NOASSERTION | Person: \"Jason R. Coombs\" \u003cjaraco@jaraco.com\u003e | 3.19.2 |
 | zlib | (MPL-2.0 AND MIT) | NOASSERTION | 1.3.1-r4 |
 | sbom |  | NOASSERTION |  |
