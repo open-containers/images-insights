@@ -1,6 +1,6 @@
 ## SBOM Insights
 
-| License | Source | Version | Package Name |
+| Version | Package Name | License | Source |
 |---|---|---|---|
 | Jinja2 | NOASSERTION | NOASSERTION | 3.1.4 |
 | MarkupSafe | LicenseRef-b1b498e4252d9df7608dd1d20366ac9762cb408f6d400fb3410564e2c9c2a415 | NOASSERTION | 3.0.2 |
@@ -20,7 +20,7 @@
 | ca-certificates-bundle | (MPL-2.0 AND MIT) | NOASSERTION | 20241010-r1 |
 | cffi | MIT | Person: Armin Rigo, Maciej Fijalkowski (python-cffi@googlegroups.com) | 1.17.1 |
 | cryptography | (Apache-2.0 OR BSD-3-Clause) | Person: The cryptography developers \u003ccryptography-dev@python.org\u003e (The Python Cryptographic Authority and individual contributors \u003ccryptography-dev@python.org\u003e) | 43.0.3 |
-| curl | MIT | NOASSERTION | 8.10.1-r1 |
+| curl | MIT | NOASSERTION | 8.10.1-r2 |
 | cyrus-sasl | BSD-3-Clause | NOASSERTION | 2.1.28-r4 |
 | gdbm | GPL-3.0-or-later | NOASSERTION | 1.24-r0 |
 | glibc | LGPL-2.1-or-later | NOASSERTION | 2.40-r3 |
@@ -44,17 +44,17 @@
 | libcom_err | (GPL-2.0-or-later AND LGPL-2.0-or-later AND BSD-3-Clause AND MIT) | NOASSERTION | 1.47.1-r0 |
 | libcrypt1 | LGPL-2.1-or-later | NOASSERTION | 2.40-r3 |
 | libcrypto3 | Apache-2.0 | NOASSERTION | 3.3.2-r2 |
-| libcurl-openssl4 | MIT | NOASSERTION | 8.10.1-r1 |
+| libcurl-openssl4 | MIT | NOASSERTION | 8.10.1-r2 |
 | libevent | BSD-3-Clause | NOASSERTION | 2.1.12-r6 |
 | libexpat1 | MIT | NOASSERTION | 2.6.3-r1 |
 | libffi | MIT | NOASSERTION | 3.4.6-r5 |
-| libgcc | (GPL-3.0-or-later WITH GCC-exception-3.1) | NOASSERTION | 14.2.0-r3 |
+| libgcc | (GPL-3.0-or-later WITH GCC-exception-3.1) | NOASSERTION | 14.2.0-r4 |
 | libidn2 | (GPL-2.0-or-later AND LGPL-3.0-or-later) | NOASSERTION | 2.3.7-r2 |
 | libldap | OLDAP-2.8 | NOASSERTION | 2.6.8-r5 |
 | libnghttp2-14 | MIT | NOASSERTION | 1.64.0-r0 |
 | libpsl | MIT | NOASSERTION | 0.21.5-r3 |
 | libssl3 | Apache-2.0 | NOASSERTION | 3.3.2-r2 |
-| libstdc++ | (GPL-3.0-or-later WITH GCC-exception-3.1) | NOASSERTION | 14.2.0-r3 |
+| libstdc++ | (GPL-3.0-or-later WITH GCC-exception-3.1) | NOASSERTION | 14.2.0-r4 |
 | libunistring | (GPL-2.0-or-later OR LGPL-3.0-or-later) | NOASSERTION | 1.3-r1 |
 | libverto | MIT | NOASSERTION | 0.3.2-r4 |
 | libxcrypt | (GPL-2.0-or-later AND LGPL-2.1-or-later) | NOASSERTION | 4.4.36-r8 |
@@ -65,11 +65,11 @@
 | ncurses-terminfo-base | MIT | NOASSERTION | 6.5_p20241006-r3 |
 | packaging | NOASSERTION | Person: Donald Stufft \u003cdonald@stufft.io\u003e | 24.1 |
 | packaging | NOASSERTION | Person: Donald Stufft \u003cdonald@stufft.io\u003e | 24.1 |
-| pip | MIT | Person: The pip developers \u003cdistutils-sig@python.org\u003e | 24.2 |
+| pip | MIT | Person: The pip developers \u003cdistutils-sig@python.org\u003e | 24.3.1 |
 | platformdirs | MIT | NOASSERTION | 4.2.2 |
-| py3-pip-wheel | MIT | NOASSERTION | 24.2-r4 |
-| py3.12-pip | MIT | NOASSERTION | 24.2-r4 |
-| py3.12-pip-base | MIT | NOASSERTION | 24.2-r4 |
+| py3-pip-wheel | MIT | NOASSERTION | 24.3.1-r0 |
+| py3.12-pip | MIT | NOASSERTION | 24.3.1-r0 |
+| py3.12-pip-base | MIT | NOASSERTION | 24.3.1-r0 |
 | py3.12-setuptools | MIT | NOASSERTION | 75.2.0-r0 |
 | pycparser | BSD-3-Clause | Person: Eli Bendersky (eliben@gmail.com) | 2.22 |
 | python-3.12 | PSF-2.0 | NOASSERTION | 3.12.7-r0 |
