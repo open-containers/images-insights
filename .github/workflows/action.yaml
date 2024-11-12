@@ -3,17 +3,15 @@ name: image-insights
 on:
   # The schedule will trigger at 0900 UTC timezone
   schedule:
-    - cron: "0 20 * * *"
-  # push:
-  #   branches:
-  #     - main
+    - cron: "0 08 * * *"
+ #  push:
+ #    branches:
+ #      - main
 
 permissions:
   packages: write
   contents: write
   id-token: write
-# actions: wrgccte
-# pull-requests: write
 
 jobs:
   publish-insights:
@@ -78,7 +76,7 @@ jobs:
         run: |
           git add .
 
-      - uses: planetscale/ghcommit-action@v0.1.6
+      - uses: planetscale/ghcommit-action@v0.2.0
         with:
           commit_message: "Add Provenance files"
           repo: ${{ github.repository }}
