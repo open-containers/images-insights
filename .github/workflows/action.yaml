@@ -64,19 +64,15 @@ jobs:
             --format '{{ json .SBOM.SPDX }}' > ./${{ matrix.image.name }}-attestations/${{ matrix.image.name }}-sbom.json
 
       - name: Run Trivy vulnerability scanner
-        uses: aquasecurity/trivy-action@0.20.0
+        uses: aquasecurity/trivy-action@0.28.0
         with:
           scan-type: image
           image-ref: ${{env.REGISTRY}}/${{ env.ORG }}/${{ matrix.image.name }}:v1.0.0
           format: "json"
           output: ./${{ matrix.image.name }}-attestations/${{ matrix.image.name }}-cves.json
+          github-pat: ${{ secrets.GITHUB_TOKEN }}
         env:
-          TRIVY_USERNAME: ${{ github.actor }}
-          TRIVY_PASSWORD: ${{ secrets.GHCR_PAT }}
-
-      - name: Export SBOM in markdown
-        run: |
-          go run ./insights_scripts/main.go -sbom ./ansible-attestations/ansible-sbom.json
+          TRIVY_DB_REPOSITORY: "public.ecr.aws/aquasecurity/trivy-db:2"
 
       - name: Stage files
         run: |
