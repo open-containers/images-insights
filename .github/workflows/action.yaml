@@ -69,10 +69,8 @@ jobs:
           format: "json"
           output: ./${{ matrix.image.name }}-attestations/${{ matrix.image.name }}-cves.json
           github-pat: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Export SBOM in markdown
-        run: |
-          go run ./insights_scripts/main.go -sbom ./ansible-attestations/ansible-sbom.json
+        env:
+          TRIVY_DB_REPOSITORY: "public.ecr.aws/aquasecurity/trivy-db:2"
 
       - name: Stage files
         run: |
