@@ -4,9 +4,9 @@ on:
   # The schedule will trigger at 0900 UTC timezone
   schedule:
     - cron: "0 08 * * *"
- #  push:
- #    branches:
- #      - main
+  push:
+    branches:
+      - main
 
 permissions:
   packages: write
@@ -74,9 +74,9 @@ jobs:
 
       - name: Stage files
         run: |
-          git add .
+          git add ansible-attestations/
 
-      - uses: planetscale/ghcommit-action@v0.1.6
+      - uses: planetscale/ghcommit-action@v0.2.0
         with:
           commit_message: "Add Provenance files"
           repo: ${{ github.repository }}
