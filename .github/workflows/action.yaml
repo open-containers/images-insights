@@ -4,9 +4,9 @@ on:
   # The schedule will trigger at 0900 UTC timezone
   schedule:
     - cron: "0 08 * * *"
-  push:
-    branches:
-      - main
+  # push:
+    # branches:
+      # - main
 
 permissions:
   packages: write
