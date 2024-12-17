@@ -5,8 +5,8 @@ on:
   schedule:
     - cron: "0 08 * * *"
   # push:
-    # branches:
-      # - main
+  # branches:
+  # - main
 
 permissions:
   packages: write
@@ -76,11 +76,13 @@ jobs:
         run: |
           git add ansible-attestations/
 
-      - uses: planetscale/ghcommit-action@v0.2.0
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v7
         with:
-          commit_message: "Add Provenance files"
-          repo: ${{ github.repository }}
-          branch: "main"
-          # branch: ${{ matrix.image.name }}-${{ github.run_number }}
-        env:
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          title: "[Auto-PR-BOT]: Update Provenance data for [${{ matrix.image.name }}]"
+          commit-message: "Update provenance data"
+          delete-branch: true
+          committer: GitHub <noreply@github.com>
+          author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
+          body: |
+            This is an Auto generated PR. This PR updates the provenance data collected for the [${{ matrix.image.name }}]
