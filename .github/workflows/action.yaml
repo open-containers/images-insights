@@ -72,10 +72,6 @@ jobs:
         env:
           TRIVY_DB_REPOSITORY: "public.ecr.aws/aquasecurity/trivy-db:2"
 
-      - name: Stage files
-        run: |
-          git add ansible-attestations/
-
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v7
         with:
@@ -84,5 +80,9 @@ jobs:
           delete-branch: true
           committer: GitHub <noreply@github.com>
           author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
+          add-paths: |
+            ./${{ matrix.image.name }}-attestations/${{ matrix.image.name }}-sbom.json
+            ./${{ matrix.image.name }}-attestations/${{ matrix.image.name }}-provenance.json
+            ./${{ matrix.image.name }}-attestations/${{ matrix.image.name }}-cves.json
           body: |
             This is an Auto generated PR. This PR updates the provenance data collected for the [${{ matrix.image.name }}]
