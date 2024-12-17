@@ -74,6 +74,7 @@ jobs:
           TRIVY_DB_REPOSITORY: "public.ecr.aws/aquasecurity/trivy-db:2"
 
       - name: Create Pull Request
+        id: cpr
         uses: peter-evans/create-pull-request@v7
         with:
           title: "[Auto-PR-BOT]: Update Provenance data for [${{ matrix.image.name }}]"
@@ -86,4 +87,14 @@ jobs:
             ./${{ matrix.image.name }}-attestations/${{ matrix.image.name }}-provenance.json
             ./${{ matrix.image.name }}-attestations/${{ matrix.image.name }}-cves.json
           body: |
-            This is an Auto generated PR. This PR updates the provenance data collected for the [${{ matrix.image.name }}]
+            This is an Auto generated PR. This PR updates the provenance data collected for the ${{ matrix.image.name }} image
+            
+      - name: Auto Approve PR
+        if: steps.cpr.outputs.pull-request-operation == 'created'
+        run: gh pr review --approve "${{ steps.cpr.outputs.pull-request-number }}"
+        uses: peter-evans/enable-pull-request-automerge@v3
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          pull-request-number: ${{ steps.cpr.outputs.pull-request-number }}
+          merge-method: squash
