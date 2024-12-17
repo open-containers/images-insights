@@ -3,10 +3,10 @@ name: image-insights
 on:
   # The schedule will trigger at 0900 UTC timezone
   #schedule:
-   # - cron: "0 08 * * *"
+  # - cron: "0 08 * * *"
   push:
     branches:
-    - main
+      - main
 
 permissions:
   packages: write
@@ -83,9 +83,9 @@ jobs:
           committer: GitHub <noreply@github.com>
           author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
           add-paths: |
-            ./${{ matrix.image.name }}-attestations/${{ matrix.image.name }}-sbom.json
-            ./${{ matrix.image.name }}-attestations/${{ matrix.image.name }}-provenance.json
-            ./${{ matrix.image.name }}-attestations/${{ matrix.image.name }}-cves.json
+            ${{ matrix.image.name }}-attestations/${{ matrix.image.name }}-sbom.json
+            ${{ matrix.image.name }}-attestations/${{ matrix.image.name }}-provenance.json
+            ${{ matrix.image.name }}-attestations/${{ matrix.image.name }}-cves.json
           body: |
             This is an Auto generated PR. This PR updates the provenance data collected for the ${{ matrix.image.name }} image
 
@@ -94,12 +94,10 @@ jobs:
         run: gh pr review --approve "${{ steps.cpr.outputs.pull-request-number }}"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        
-            
+
       - name: Auto Merge
         if: steps.cpr.outputs.pull-request-operation == 'created'
         uses: peter-evans/enable-pull-request-automerge@v3
         with:
           pull-request-number: ${{ steps.cpr.outputs.pull-request-number }}
           merge-method: squash
-      
