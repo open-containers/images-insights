@@ -88,13 +88,18 @@ jobs:
             ./${{ matrix.image.name }}-attestations/${{ matrix.image.name }}-cves.json
           body: |
             This is an Auto generated PR. This PR updates the provenance data collected for the ${{ matrix.image.name }} image
-            
-      - name: Auto Approve PR
+
+      - name: Auto Approve
         if: steps.cpr.outputs.pull-request-operation == 'created'
         run: gh pr review --approve "${{ steps.cpr.outputs.pull-request-number }}"
-        uses: peter-evans/enable-pull-request-automerge@v3
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        
+            
+      - name: Auto Merge
+        if: steps.cpr.outputs.pull-request-operation == 'created'
+        uses: peter-evans/enable-pull-request-automerge@v3
         with:
           pull-request-number: ${{ steps.cpr.outputs.pull-request-number }}
           merge-method: squash
+      
