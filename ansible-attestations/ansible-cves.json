@@ -1,6 +1,6 @@
 {
   "SchemaVersion": 2,
-  "CreatedAt": "2024-11-15T08:18:34.964583557Z",
+  "CreatedAt": "2024-12-18T08:14:45.784778539Z",
   "ArtifactName": "ghcr.io/open-containers/ansible:v1.0.0",
   "ArtifactType": "container_image",
   "Metadata": {
@@ -105,6 +105,53 @@
       "Type": "wolfi",
       "Vulnerabilities": [
         {
+          "VulnerabilityID": "CVE-2024-11053",
+          "PkgID": "curl@8.10.1-r2",
+          "PkgName": "curl",
+          "PkgIdentifier": {
+            "PURL": "pkg:apk/wolfi/curl@8.10.1-r2?arch=x86_64\u0026distro=20230201",
+            "UID": "e734128069fa02a9"
+          },
+          "InstalledVersion": "8.10.1-r2",
+          "FixedVersion": "8.11.1-r0",
+          "Status": "fixed",
+          "Layer": {
+            "Digest": "sha256:530cd44bfbeadd062b300fc413178a0f48c6411190714296a1b927a5c1bc487a",
+            "DiffID": "sha256:0b6bafb1ce741636cd144435a5117929428cf26b3425774982782096e280bf24"
+          },
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2024-11053",
+          "DataSource": {
+            "ID": "wolfi",
+            "Name": "Wolfi Secdb",
+            "URL": "https://packages.wolfi.dev/os/security.json"
+          },
+          "Title": "curl: curl netrc password leak",
+          "Description": "When asked to both use a `.netrc` file for credentials and to follow HTTP\nredirects, curl could leak the password used for the first host to the\nfollowed-to host under certain circumstances.\n\nThis flaw only manifests itself if the netrc file has an entry that matches\nthe redirect target hostname but the entry either omits just the password or\nomits both login and password.",
+          "Severity": "MEDIUM",
+          "VendorSeverity": {
+            "redhat": 1,
+            "ubuntu": 1
+          },
+          "CVSS": {
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N",
+              "V3Score": 5.9
+            }
+          },
+          "References": [
+            "http://www.openwall.com/lists/oss-security/2024/12/11/1",
+            "https://access.redhat.com/security/cve/CVE-2024-11053",
+            "https://curl.se/docs/CVE-2024-11053.html",
+            "https://curl.se/docs/CVE-2024-11053.json",
+            "https://hackerone.com/reports/2829063",
+            "https://nvd.nist.gov/vuln/detail/CVE-2024-11053",
+            "https://ubuntu.com/security/notices/USN-7162-1",
+            "https://www.cve.org/CVERecord?id=CVE-2024-11053"
+          ],
+          "PublishedDate": "2024-12-11T08:15:05.307Z",
+          "LastModifiedDate": "2024-12-15T17:15:05.273Z"
+        },
+        {
           "VulnerabilityID": "CVE-2024-9681",
           "PkgID": "curl@8.10.1-r2",
           "PkgName": "curl",
@@ -119,27 +166,95 @@
             "Digest": "sha256:530cd44bfbeadd062b300fc413178a0f48c6411190714296a1b927a5c1bc487a",
             "DiffID": "sha256:0b6bafb1ce741636cd144435a5117929428cf26b3425774982782096e280bf24"
           },
+          "SeveritySource": "nvd",
           "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2024-9681",
           "DataSource": {
             "ID": "wolfi",
             "Name": "Wolfi Secdb",
             "URL": "https://packages.wolfi.dev/os/security.json"
           },
-          "Title": "When curl is asked to use HSTS, the expiry time for a subdomain might  ...",
+          "Title": "curl: HSTS subdomain overwrites parent cache entry",
           "Description": "When curl is asked to use HSTS, the expiry time for a subdomain might\noverwrite a parent domain's cache entry, making it end sooner or later than\notherwise intended.\n\nThis affects curl using applications that enable HSTS and use URLs with the\ninsecure `HTTP://` scheme and perform transfers with hosts like\n`x.example.com` as well as `example.com` where the first host is a subdomain\nof the second host.\n\n(The HSTS cache either needs to have been populated manually or there needs to\nhave been previous HTTPS accesses done as the cache needs to have entries for\nthe domains involved to trigger this problem.)\n\nWhen `x.example.com` responds with `Strict-Transport-Security:` headers, this\nbug can make the subdomain's expiry timeout *bleed over* and get set for the\nparent domain `example.com` in curl's HSTS cache.\n\nThe result of a triggered bug is that HTTP accesses to `example.com` get\nconverted to HTTPS for a different period of time than what was asked for by\nthe origin server. If `example.com` for example stops supporting HTTPS at its\nexpiry time, curl might then fail to access `http://example.com` until the\n(wrongly set) timeout expires. This bug can also expire the parent's entry\n*earlier*, thus making curl inadvertently switch back to insecure HTTP earlier\nthan otherwise intended.",
-          "Severity": "LOW",
+          "Severity": "MEDIUM",
+          "CweIDs": [
+            "CWE-697"
+          ],
           "VendorSeverity": {
+            "nvd": 2,
             "photon": 2,
+            "redhat": 1,
             "ubuntu": 1
           },
+          "CVSS": {
+            "nvd": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:H/A:L",
+              "V3Score": 6.5
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:L/I:N/A:N",
+              "V3Score": 2.5
+            }
+          },
           "References": [
+            "http://www.openwall.com/lists/oss-security/2024/11/06/2",
+            "https://access.redhat.com/security/cve/CVE-2024-9681",
             "https://curl.se/docs/CVE-2024-9681.html",
             "https://curl.se/docs/CVE-2024-9681.json",
             "https://hackerone.com/reports/2764830",
+            "https://nvd.nist.gov/vuln/detail/CVE-2024-9681",
+            "https://security.netapp.com/advisory/ntap-20241213-0006/",
+            "https://ubuntu.com/security/notices/USN-7104-1",
             "https://www.cve.org/CVERecord?id=CVE-2024-9681"
           ],
           "PublishedDate": "2024-11-06T08:15:03.74Z",
-          "LastModifiedDate": "2024-11-06T18:17:17.287Z"
+          "LastModifiedDate": "2024-12-13T14:15:22.953Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2024-11053",
+          "PkgID": "libcurl-openssl4@8.10.1-r2",
+          "PkgName": "libcurl-openssl4",
+          "PkgIdentifier": {
+            "PURL": "pkg:apk/wolfi/libcurl-openssl4@8.10.1-r2?arch=x86_64\u0026distro=20230201",
+            "UID": "826ca861337420"
+          },
+          "InstalledVersion": "8.10.1-r2",
+          "FixedVersion": "8.11.1-r0",
+          "Status": "fixed",
+          "Layer": {
+            "Digest": "sha256:530cd44bfbeadd062b300fc413178a0f48c6411190714296a1b927a5c1bc487a",
+            "DiffID": "sha256:0b6bafb1ce741636cd144435a5117929428cf26b3425774982782096e280bf24"
+          },
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2024-11053",
+          "DataSource": {
+            "ID": "wolfi",
+            "Name": "Wolfi Secdb",
+            "URL": "https://packages.wolfi.dev/os/security.json"
+          },
+          "Title": "curl: curl netrc password leak",
+          "Description": "When asked to both use a `.netrc` file for credentials and to follow HTTP\nredirects, curl could leak the password used for the first host to the\nfollowed-to host under certain circumstances.\n\nThis flaw only manifests itself if the netrc file has an entry that matches\nthe redirect target hostname but the entry either omits just the password or\nomits both login and password.",
+          "Severity": "MEDIUM",
+          "VendorSeverity": {
+            "redhat": 1,
+            "ubuntu": 1
+          },
+          "CVSS": {
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N",
+              "V3Score": 5.9
+            }
+          },
+          "References": [
+            "http://www.openwall.com/lists/oss-security/2024/12/11/1",
+            "https://access.redhat.com/security/cve/CVE-2024-11053",
+            "https://curl.se/docs/CVE-2024-11053.html",
+            "https://curl.se/docs/CVE-2024-11053.json",
+            "https://hackerone.com/reports/2829063",
+            "https://nvd.nist.gov/vuln/detail/CVE-2024-11053",
+            "https://ubuntu.com/security/notices/USN-7162-1",
+            "https://www.cve.org/CVERecord?id=CVE-2024-11053"
+          ],
+          "PublishedDate": "2024-12-11T08:15:05.307Z",
+          "LastModifiedDate": "2024-12-15T17:15:05.273Z"
         },
         {
           "VulnerabilityID": "CVE-2024-9681",
@@ -156,27 +271,282 @@
             "Digest": "sha256:530cd44bfbeadd062b300fc413178a0f48c6411190714296a1b927a5c1bc487a",
             "DiffID": "sha256:0b6bafb1ce741636cd144435a5117929428cf26b3425774982782096e280bf24"
           },
+          "SeveritySource": "nvd",
           "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2024-9681",
           "DataSource": {
             "ID": "wolfi",
             "Name": "Wolfi Secdb",
             "URL": "https://packages.wolfi.dev/os/security.json"
           },
-          "Title": "When curl is asked to use HSTS, the expiry time for a subdomain might  ...",
+          "Title": "curl: HSTS subdomain overwrites parent cache entry",
           "Description": "When curl is asked to use HSTS, the expiry time for a subdomain might\noverwrite a parent domain's cache entry, making it end sooner or later than\notherwise intended.\n\nThis affects curl using applications that enable HSTS and use URLs with the\ninsecure `HTTP://` scheme and perform transfers with hosts like\n`x.example.com` as well as `example.com` where the first host is a subdomain\nof the second host.\n\n(The HSTS cache either needs to have been populated manually or there needs to\nhave been previous HTTPS accesses done as the cache needs to have entries for\nthe domains involved to trigger this problem.)\n\nWhen `x.example.com` responds with `Strict-Transport-Security:` headers, this\nbug can make the subdomain's expiry timeout *bleed over* and get set for the\nparent domain `example.com` in curl's HSTS cache.\n\nThe result of a triggered bug is that HTTP accesses to `example.com` get\nconverted to HTTPS for a different period of time than what was asked for by\nthe origin server. If `example.com` for example stops supporting HTTPS at its\nexpiry time, curl might then fail to access `http://example.com` until the\n(wrongly set) timeout expires. This bug can also expire the parent's entry\n*earlier*, thus making curl inadvertently switch back to insecure HTTP earlier\nthan otherwise intended.",
-          "Severity": "LOW",
+          "Severity": "MEDIUM",
+          "CweIDs": [
+            "CWE-697"
+          ],
           "VendorSeverity": {
+            "nvd": 2,
             "photon": 2,
+            "redhat": 1,
             "ubuntu": 1
           },
+          "CVSS": {
+            "nvd": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:H/A:L",
+              "V3Score": 6.5
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:L/I:N/A:N",
+              "V3Score": 2.5
+            }
+          },
           "References": [
+            "http://www.openwall.com/lists/oss-security/2024/11/06/2",
+            "https://access.redhat.com/security/cve/CVE-2024-9681",
             "https://curl.se/docs/CVE-2024-9681.html",
             "https://curl.se/docs/CVE-2024-9681.json",
             "https://hackerone.com/reports/2764830",
+            "https://nvd.nist.gov/vuln/detail/CVE-2024-9681",
+            "https://security.netapp.com/advisory/ntap-20241213-0006/",
+            "https://ubuntu.com/security/notices/USN-7104-1",
             "https://www.cve.org/CVERecord?id=CVE-2024-9681"
           ],
           "PublishedDate": "2024-11-06T08:15:03.74Z",
-          "LastModifiedDate": "2024-11-06T18:17:17.287Z"
+          "LastModifiedDate": "2024-12-13T14:15:22.953Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2024-12254",
+          "PkgID": "python-3.12@3.12.7-r1",
+          "PkgName": "python-3.12",
+          "PkgIdentifier": {
+            "PURL": "pkg:apk/wolfi/python-3.12@3.12.7-r1?arch=x86_64\u0026distro=20230201",
+            "UID": "3f1dfe8ea62a13e8"
+          },
+          "InstalledVersion": "3.12.7-r1",
+          "FixedVersion": "3.12.8-r1",
+          "Status": "fixed",
+          "Layer": {
+            "Digest": "sha256:530cd44bfbeadd062b300fc413178a0f48c6411190714296a1b927a5c1bc487a",
+            "DiffID": "sha256:0b6bafb1ce741636cd144435a5117929428cf26b3425774982782096e280bf24"
+          },
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2024-12254",
+          "DataSource": {
+            "ID": "wolfi",
+            "Name": "Wolfi Secdb",
+            "URL": "https://packages.wolfi.dev/os/security.json"
+          },
+          "Title": "python: Unbounded memory buffering in SelectorSocketTransport.writelines()",
+          "Description": "Starting in Python 3.12.0, the asyncio._SelectorSocketTransport.writelines()\n method would not \"pause\" writing and signal to the Protocol to drain \nthe buffer to the wire once the write buffer reached the \"high-water \nmark\". Because of this, Protocols would not periodically drain the write\n buffer potentially leading to memory exhaustion.\n\n\n\n\n\nThis\n vulnerability likely impacts a small number of users, you must be using\n Python 3.12.0 or later, on macOS or Linux, using the asyncio module \nwith protocols, and using .writelines() method which had new \nzero-copy-on-write behavior in Python 3.12.0 and later. If not all of \nthese factors are true then your usage of Python is unaffected.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-400",
+            "CWE-770"
+          ],
+          "VendorSeverity": {
+            "oracle-oval": 3,
+            "redhat": 3
+          },
+          "CVSS": {
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            }
+          },
+          "References": [
+            "http://www.openwall.com/lists/oss-security/2024/12/06/1",
+            "https://access.redhat.com/security/cve/CVE-2024-12254",
+            "https://github.com/python/cpython/commit/71e8429ac8e2adc10084ab5ec29a62f4b6671a82",
+            "https://github.com/python/cpython/commit/9aa0deb2eef2655a1029ba228527b152353135b5",
+            "https://github.com/python/cpython/issues/127655",
+            "https://github.com/python/cpython/pull/127656",
+            "https://linux.oracle.com/cve/CVE-2024-12254.html",
+            "https://linux.oracle.com/errata/ELSA-2024-10980.html",
+            "https://mail.python.org/archives/list/security-announce@python.org/thread/H4O3UBAOAQQXGT4RE3E4XQYR5XLROORB/",
+            "https://nvd.nist.gov/vuln/detail/CVE-2024-12254",
+            "https://www.cve.org/CVERecord?id=CVE-2024-12254"
+          ],
+          "PublishedDate": "2024-12-06T16:15:20.623Z",
+          "LastModifiedDate": "2024-12-06T19:15:10.983Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2024-50602",
+          "PkgID": "python-3.12@3.12.7-r1",
+          "PkgName": "python-3.12",
+          "PkgIdentifier": {
+            "PURL": "pkg:apk/wolfi/python-3.12@3.12.7-r1?arch=x86_64\u0026distro=20230201",
+            "UID": "3f1dfe8ea62a13e8"
+          },
+          "InstalledVersion": "3.12.7-r1",
+          "FixedVersion": "3.12.8-r0",
+          "Status": "fixed",
+          "Layer": {
+            "Digest": "sha256:530cd44bfbeadd062b300fc413178a0f48c6411190714296a1b927a5c1bc487a",
+            "DiffID": "sha256:0b6bafb1ce741636cd144435a5117929428cf26b3425774982782096e280bf24"
+          },
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2024-50602",
+          "DataSource": {
+            "ID": "wolfi",
+            "Name": "Wolfi Secdb",
+            "URL": "https://packages.wolfi.dev/os/security.json"
+          },
+          "Title": "libexpat: expat: DoS via XML_ResumeParser",
+          "Description": "An issue was discovered in libexpat before 2.6.4. There is a crash within the XML_ResumeParser function because XML_StopParser can stop/suspend an unstarted parser.",
+          "Severity": "MEDIUM",
+          "CweIDs": [
+            "CWE-754"
+          ],
+          "VendorSeverity": {
+            "alma": 2,
+            "azure": 2,
+            "bitnami": 2,
+            "cbl-mariner": 2,
+            "oracle-oval": 2,
+            "redhat": 2,
+            "rocky": 2
+          },
+          "CVSS": {
+            "bitnami": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 5.9
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 5.9
+            }
+          },
+          "References": [
+            "https://access.redhat.com/errata/RHSA-2024:9541",
+            "https://access.redhat.com/security/cve/CVE-2024-50602",
+            "https://bugzilla.redhat.com/2321987",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2321987",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-50602",
+            "https://errata.almalinux.org/9/ALSA-2024-9541.html",
+            "https://errata.rockylinux.org/RLSA-2024:9502",
+            "https://github.com/libexpat/libexpat/pull/915",
+            "https://linux.oracle.com/cve/CVE-2024-50602.html",
+            "https://linux.oracle.com/errata/ELSA-2024-9541.html",
+            "https://nvd.nist.gov/vuln/detail/CVE-2024-50602",
+            "https://www.cve.org/CVERecord?id=CVE-2024-50602"
+          ],
+          "PublishedDate": "2024-10-27T05:15:04.09Z",
+          "LastModifiedDate": "2024-10-30T18:35:16.237Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2024-12254",
+          "PkgID": "python-3.12-base@3.12.7-r1",
+          "PkgName": "python-3.12-base",
+          "PkgIdentifier": {
+            "PURL": "pkg:apk/wolfi/python-3.12-base@3.12.7-r1?arch=x86_64\u0026distro=20230201",
+            "UID": "433eff1a1eaf7d66"
+          },
+          "InstalledVersion": "3.12.7-r1",
+          "FixedVersion": "3.12.8-r1",
+          "Status": "fixed",
+          "Layer": {
+            "Digest": "sha256:530cd44bfbeadd062b300fc413178a0f48c6411190714296a1b927a5c1bc487a",
+            "DiffID": "sha256:0b6bafb1ce741636cd144435a5117929428cf26b3425774982782096e280bf24"
+          },
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2024-12254",
+          "DataSource": {
+            "ID": "wolfi",
+            "Name": "Wolfi Secdb",
+            "URL": "https://packages.wolfi.dev/os/security.json"
+          },
+          "Title": "python: Unbounded memory buffering in SelectorSocketTransport.writelines()",
+          "Description": "Starting in Python 3.12.0, the asyncio._SelectorSocketTransport.writelines()\n method would not \"pause\" writing and signal to the Protocol to drain \nthe buffer to the wire once the write buffer reached the \"high-water \nmark\". Because of this, Protocols would not periodically drain the write\n buffer potentially leading to memory exhaustion.\n\n\n\n\n\nThis\n vulnerability likely impacts a small number of users, you must be using\n Python 3.12.0 or later, on macOS or Linux, using the asyncio module \nwith protocols, and using .writelines() method which had new \nzero-copy-on-write behavior in Python 3.12.0 and later. If not all of \nthese factors are true then your usage of Python is unaffected.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-400",
+            "CWE-770"
+          ],
+          "VendorSeverity": {
+            "oracle-oval": 3,
+            "redhat": 3
+          },
+          "CVSS": {
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            }
+          },
+          "References": [
+            "http://www.openwall.com/lists/oss-security/2024/12/06/1",
+            "https://access.redhat.com/security/cve/CVE-2024-12254",
+            "https://github.com/python/cpython/commit/71e8429ac8e2adc10084ab5ec29a62f4b6671a82",
+            "https://github.com/python/cpython/commit/9aa0deb2eef2655a1029ba228527b152353135b5",
+            "https://github.com/python/cpython/issues/127655",
+            "https://github.com/python/cpython/pull/127656",
+            "https://linux.oracle.com/cve/CVE-2024-12254.html",
+            "https://linux.oracle.com/errata/ELSA-2024-10980.html",
+            "https://mail.python.org/archives/list/security-announce@python.org/thread/H4O3UBAOAQQXGT4RE3E4XQYR5XLROORB/",
+            "https://nvd.nist.gov/vuln/detail/CVE-2024-12254",
+            "https://www.cve.org/CVERecord?id=CVE-2024-12254"
+          ],
+          "PublishedDate": "2024-12-06T16:15:20.623Z",
+          "LastModifiedDate": "2024-12-06T19:15:10.983Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2024-50602",
+          "PkgID": "python-3.12-base@3.12.7-r1",
+          "PkgName": "python-3.12-base",
+          "PkgIdentifier": {
+            "PURL": "pkg:apk/wolfi/python-3.12-base@3.12.7-r1?arch=x86_64\u0026distro=20230201",
+            "UID": "433eff1a1eaf7d66"
+          },
+          "InstalledVersion": "3.12.7-r1",
+          "FixedVersion": "3.12.8-r0",
+          "Status": "fixed",
+          "Layer": {
+            "Digest": "sha256:530cd44bfbeadd062b300fc413178a0f48c6411190714296a1b927a5c1bc487a",
+            "DiffID": "sha256:0b6bafb1ce741636cd144435a5117929428cf26b3425774982782096e280bf24"
+          },
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2024-50602",
+          "DataSource": {
+            "ID": "wolfi",
+            "Name": "Wolfi Secdb",
+            "URL": "https://packages.wolfi.dev/os/security.json"
+          },
+          "Title": "libexpat: expat: DoS via XML_ResumeParser",
+          "Description": "An issue was discovered in libexpat before 2.6.4. There is a crash within the XML_ResumeParser function because XML_StopParser can stop/suspend an unstarted parser.",
+          "Severity": "MEDIUM",
+          "CweIDs": [
+            "CWE-754"
+          ],
+          "VendorSeverity": {
+            "alma": 2,
+            "azure": 2,
+            "bitnami": 2,
+            "cbl-mariner": 2,
+            "oracle-oval": 2,
+            "redhat": 2,
+            "rocky": 2
+          },
+          "CVSS": {
+            "bitnami": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 5.9
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 5.9
+            }
+          },
+          "References": [
+            "https://access.redhat.com/errata/RHSA-2024:9541",
+            "https://access.redhat.com/security/cve/CVE-2024-50602",
+            "https://bugzilla.redhat.com/2321987",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2321987",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-50602",
+            "https://errata.almalinux.org/9/ALSA-2024-9541.html",
+            "https://errata.rockylinux.org/RLSA-2024:9502",
+            "https://github.com/libexpat/libexpat/pull/915",
+            "https://linux.oracle.com/cve/CVE-2024-50602.html",
+            "https://linux.oracle.com/errata/ELSA-2024-9541.html",
+            "https://nvd.nist.gov/vuln/detail/CVE-2024-50602",
+            "https://www.cve.org/CVERecord?id=CVE-2024-50602"
+          ],
+          "PublishedDate": "2024-10-27T05:15:04.09Z",
+          "LastModifiedDate": "2024-10-30T18:35:16.237Z"
         }
       ]
     },
@@ -199,7 +569,8 @@
             "UID": "13ad7a481310e7e5"
           },
           "InstalledVersion": "2.17.6",
-          "Status": "affected",
+          "FixedVersion": "2.18.1rc1, 2.17.7rc1, 2.16.14rc1",
+          "Status": "fixed",
           "Layer": {
             "Digest": "sha256:cb2a92edcefea2d17ee4f2161491731961a20c7946644fb80fbacde3735ef4df",
             "DiffID": "sha256:ba79842e4a19cbd05e12c8ac2a109d46886609c97069ae5b7a6c7055a6087cd9"
@@ -232,15 +603,177 @@
             }
           },
           "References": [
+            "https://access.redhat.com/errata/RHSA-2024:10770",
             "https://access.redhat.com/security/cve/CVE-2024-11079",
             "https://bugzilla.redhat.com/show_bug.cgi?id=2325171",
             "https://github.com/ansible/ansible",
+            "https://github.com/ansible/ansible/blob/v2.18.1/changelogs/CHANGELOG-v2.18.rst#security-fixes",
+            "https://github.com/ansible/ansible/commit/2936b80dbbc7efb889934aeec80f6142c10266ce",
+            "https://github.com/ansible/ansible/commit/70e83e72b43e05e57eb42a6d52d01a4d9768f510",
+            "https://github.com/ansible/ansible/commit/98774d15d7748ebaaaf2e83942cc7e8d39f7280e",
             "https://github.com/ansible/ansible/pull/84299",
+            "https://github.com/ansible/ansible/pull/84339",
             "https://nvd.nist.gov/vuln/detail/CVE-2024-11079",
             "https://www.cve.org/CVERecord?id=CVE-2024-11079"
           ],
           "PublishedDate": "2024-11-12T00:15:15.543Z",
-          "LastModifiedDate": "2024-11-12T13:55:21.227Z"
+          "LastModifiedDate": "2024-12-04T02:15:04.1Z"
+        }
+      ]
+    },
+    {
+      "Target": "/home/ansible/.local/lib/python3.12/site-packages/ansible_collections/azure/azcollection/plugins/modules/__pycache__/azure_rm_accesstoken_info.cpython-312.pyc",
+      "Class": "secret",
+      "Secrets": [
+        {
+          "RuleID": "jwt-token",
+          "Category": "JWT",
+          "Severity": "MEDIUM",
+          "Title": "JWT token",
+          "StartLine": 43,
+          "EndLine": 43,
+          "Code": {
+            "Lines": null
+          },
+          "Match": "Binary file \"/home/ansible/.local/lib/python3.12/site-packages/ansible_collections/azure/azcollection/plugins/modules/__pycache__/azure_rm_accesstoken_info.cpython-312.pyc\" matches a rule \"JWT token\"",
+          "Layer": {
+            "Digest": "sha256:cb2a92edcefea2d17ee4f2161491731961a20c7946644fb80fbacde3735ef4df",
+            "DiffID": "sha256:ba79842e4a19cbd05e12c8ac2a109d46886609c97069ae5b7a6c7055a6087cd9",
+            "CreatedBy": "RUN /bin/sh -c python3 -m pip install --user ansible # buildkit"
+          }
+        }
+      ]
+    },
+    {
+      "Target": "/home/ansible/.local/lib/python3.12/site-packages/ansible_collections/azure/azcollection/plugins/modules/azure_rm_accesstoken_info.py",
+      "Class": "secret",
+      "Secrets": [
+        {
+          "RuleID": "jwt-token",
+          "Category": "JWT",
+          "Severity": "MEDIUM",
+          "Title": "JWT token",
+          "StartLine": 64,
+          "EndLine": 64,
+          "Code": {
+            "Lines": [
+              {
+                "Number": 62,
+                "Content": "    returned: success",
+                "IsCause": false,
+                "Annotation": "",
+                "Truncated": false,
+                "Highlighted": "    returned: success",
+                "FirstCause": false,
+                "LastCause": false
+              },
+              {
+                "Number": 63,
+                "Content": "    type: str",
+                "IsCause": false,
+                "Annotation": "",
+                "Truncated": false,
+                "Highlighted": "    type: str",
+                "FirstCause": false,
+                "LastCause": false
+              },
+              {
+                "Number": 64,
+                "Content": "    sample: ***********************************************************************************************************************************",
+                "IsCause": true,
+                "Annotation": "",
+                "Truncated": false,
+                "Highlighted": "    sample: ***********************************************************************************************************************************",
+                "FirstCause": true,
+                "LastCause": true
+              },
+              {
+                "Number": 65,
+                "Content": "expires_on:",
+                "IsCause": false,
+                "Annotation": "",
+                "Truncated": false,
+                "Highlighted": "expires_on:",
+                "FirstCause": false,
+                "LastCause": false
+              }
+            ]
+          },
+          "Match": "    sample: ***********************************************************************************************************************************",
+          "Layer": {
+            "Digest": "sha256:cb2a92edcefea2d17ee4f2161491731961a20c7946644fb80fbacde3735ef4df",
+            "DiffID": "sha256:ba79842e4a19cbd05e12c8ac2a109d46886609c97069ae5b7a6c7055a6087cd9",
+            "CreatedBy": "RUN /bin/sh -c python3 -m pip install --user ansible # buildkit"
+          }
+        }
+      ]
+    },
+    {
+      "Target": "/home/ansible/.local/lib/python3.12/site-packages/ansible_collections/community/digitalocean/plugins/modules/__pycache__/digital_ocean_certificate.cpython-312.pyc",
+      "Class": "secret",
+      "Secrets": [
+        {
+          "RuleID": "private-key",
+          "Category": "AsymmetricPrivateKey",
+          "Severity": "HIGH",
+          "Title": "Asymmetric Private Key",
+          "StartLine": 42,
+          "EndLine": 42,
+          "Code": {
+            "Lines": null
+          },
+          "Match": "Binary file \"/home/ansible/.local/lib/python3.12/site-packages/ansible_collections/community/digitalocean/plugins/modules/__pycache__/digital_ocean_certificate.cpython-312.pyc\" matches a rule \"Asymmetric Private Key\"",
+          "Layer": {
+            "Digest": "sha256:cb2a92edcefea2d17ee4f2161491731961a20c7946644fb80fbacde3735ef4df",
+            "DiffID": "sha256:ba79842e4a19cbd05e12c8ac2a109d46886609c97069ae5b7a6c7055a6087cd9",
+            "CreatedBy": "RUN /bin/sh -c python3 -m pip install --user ansible # buildkit"
+          }
+        }
+      ]
+    },
+    {
+      "Target": "/home/ansible/.local/lib/python3.12/site-packages/ansible_collections/google/cloud/plugins/modules/__pycache__/gcp_compute_ssl_certificate.cpython-312.pyc",
+      "Class": "secret",
+      "Secrets": [
+        {
+          "RuleID": "private-key",
+          "Category": "AsymmetricPrivateKey",
+          "Severity": "HIGH",
+          "Title": "Asymmetric Private Key",
+          "StartLine": 137,
+          "EndLine": 137,
+          "Code": {
+            "Lines": null
+          },
+          "Match": "Binary file \"/home/ansible/.local/lib/python3.12/site-packages/ansible_collections/google/cloud/plugins/modules/__pycache__/gcp_compute_ssl_certificate.cpython-312.pyc\" matches a rule \"Asymmetric Private Key\"",
+          "Layer": {
+            "Digest": "sha256:cb2a92edcefea2d17ee4f2161491731961a20c7946644fb80fbacde3735ef4df",
+            "DiffID": "sha256:ba79842e4a19cbd05e12c8ac2a109d46886609c97069ae5b7a6c7055a6087cd9",
+            "CreatedBy": "RUN /bin/sh -c python3 -m pip install --user ansible # buildkit"
+          }
+        }
+      ]
+    },
+    {
+      "Target": "/home/ansible/.local/lib/python3.12/site-packages/ansible_collections/community/network/plugins/modules/__pycache__/avi_cloudconnectoruser.cpython-312.pyc",
+      "Class": "secret",
+      "Secrets": [
+        {
+          "RuleID": "private-key",
+          "Category": "AsymmetricPrivateKey",
+          "Severity": "HIGH",
+          "Title": "Asymmetric Private Key",
+          "StartLine": 76,
+          "EndLine": 76,
+          "Code": {
+            "Lines": null
+          },
+          "Match": "Binary file \"/home/ansible/.local/lib/python3.12/site-packages/ansible_collections/community/network/plugins/modules/__pycache__/avi_cloudconnectoruser.cpython-312.pyc\" matches a rule \"Asymmetric Private Key\"",
+          "Layer": {
+            "Digest": "sha256:cb2a92edcefea2d17ee4f2161491731961a20c7946644fb80fbacde3735ef4df",
+            "DiffID": "sha256:ba79842e4a19cbd05e12c8ac2a109d46886609c97069ae5b7a6c7055a6087cd9",
+            "CreatedBy": "RUN /bin/sh -c python3 -m pip install --user ansible # buildkit"
+          }
         }
       ]
     },
@@ -309,7 +842,7 @@
       ]
     },
     {
-      "Target": "/home/ansible/.local/lib/python3.12/site-packages/ansible_collections/google/cloud/plugins/modules/gcp_compute_target_https_proxy.py",
+      "Target": "/home/ansible/.local/lib/python3.12/site-packages/ansible_collections/google/cloud/plugins/modules/gcp_compute_target_ssl_proxy.py",
       "Class": "secret",
       "Secrets": [
         {
@@ -317,12 +850,12 @@
           "Category": "AsymmetricPrivateKey",
           "Severity": "HIGH",
           "Title": "Asymmetric Private Key",
-          "StartLine": 242,
-          "EndLine": 242,
+          "StartLine": 226,
+          "EndLine": 226,
           "Code": {
             "Lines": [
               {
-                "Number": 240,
+                "Number": 224,
                 "Content": "      -----END CERTIFICATE-----",
                 "IsCause": false,
                 "Annotation": "",
@@ -332,7 +865,7 @@
                 "LastCause": false
               },
               {
-                "Number": 241,
+                "Number": 225,
                 "Content": "    private_key: |-",
                 "IsCause": false,
                 "Annotation": "",
@@ -342,7 +875,7 @@
                 "LastCause": false
               },
               {
-                "Number": 242,
+                "Number": 226,
                 "Content": "-----BEGIN EC PRIVATE KEY-----************************************************************************************************************************************************************************************************-----END EC PRIVATE ",
                 "IsCause": true,
                 "Annotation": "",
@@ -352,7 +885,7 @@
                 "LastCause": true
               },
               {
-                "Number": 243,
+                "Number": 227,
                 "Content": "    project: \"{{ gcp_project }}\"",
                 "IsCause": false,
                 "Annotation": "",
@@ -436,6 +969,70 @@
       ]
     },
     {
+      "Target": "/home/ansible/.local/lib/python3.12/site-packages/ansible_collections/community/aws/plugins/modules/sts_session_token.py",
+      "Class": "secret",
+      "Secrets": [
+        {
+          "RuleID": "aws-access-key-id",
+          "Category": "AWS",
+          "Severity": "CRITICAL",
+          "Title": "AWS Access Key ID",
+          "StartLine": 46,
+          "EndLine": 46,
+          "Code": {
+            "Lines": [
+              {
+                "Number": 44,
+                "Content": "    type: list",
+                "IsCause": false,
+                "Annotation": "",
+                "Truncated": false,
+                "Highlighted": "    type: list",
+                "FirstCause": false,
+                "LastCause": false
+              },
+              {
+                "Number": 45,
+                "Content": "    sample:",
+                "IsCause": false,
+                "Annotation": "",
+                "Truncated": false,
+                "Highlighted": "    sample:",
+                "FirstCause": false,
+                "LastCause": false
+              },
+              {
+                "Number": 46,
+                "Content": "      access_key: ********************",
+                "IsCause": true,
+                "Annotation": "",
+                "Truncated": false,
+                "Highlighted": "      access_key: ********************",
+                "FirstCause": true,
+                "LastCause": true
+              },
+              {
+                "Number": 47,
+                "Content": "      expiration: \"2016-04-08T11:59:47+00:00\"",
+                "IsCause": false,
+                "Annotation": "",
+                "Truncated": false,
+                "Highlighted": "      expiration: \"2016-04-08T11:59:47+00:00\"",
+                "FirstCause": false,
+                "LastCause": false
+              }
+            ]
+          },
+          "Match": "      access_key: ********************",
+          "Layer": {
+            "Digest": "sha256:cb2a92edcefea2d17ee4f2161491731961a20c7946644fb80fbacde3735ef4df",
+            "DiffID": "sha256:ba79842e4a19cbd05e12c8ac2a109d46886609c97069ae5b7a6c7055a6087cd9",
+            "CreatedBy": "RUN /bin/sh -c python3 -m pip install --user ansible # buildkit"
+          }
+        }
+      ]
+    },
+    {
       "Target": "/home/ansible/.local/lib/python3.12/site-packages/ansible_collections/community/digitalocean/plugins/modules/digital_ocean_certificate.py",
       "Class": "secret",
       "Secrets": [
@@ -491,6 +1088,203 @@
             ]
           },
           "Match": ": \"-----BEGIN PRIVATE KEY-----***********************************-----END PRIVATE KEY",
+          "Layer": {
+            "Digest": "sha256:cb2a92edcefea2d17ee4f2161491731961a20c7946644fb80fbacde3735ef4df",
+            "DiffID": "sha256:ba79842e4a19cbd05e12c8ac2a109d46886609c97069ae5b7a6c7055a6087cd9",
+            "CreatedBy": "RUN /bin/sh -c python3 -m pip install --user ansible # buildkit"
+          }
+        }
+      ]
+    },
+    {
+      "Target": "/home/ansible/.local/lib/python3.12/site-packages/ansible_collections/google/cloud/plugins/modules/__pycache__/gcp_compute_region_target_https_proxy.cpython-312.pyc",
+      "Class": "secret",
+      "Secrets": [
+        {
+          "RuleID": "private-key",
+          "Category": "AsymmetricPrivateKey",
+          "Severity": "HIGH",
+          "Title": "Asymmetric Private Key",
+          "StartLine": 194,
+          "EndLine": 194,
+          "Code": {
+            "Lines": null
+          },
+          "Match": "Binary file \"/home/ansible/.local/lib/python3.12/site-packages/ansible_collections/google/cloud/plugins/modules/__pycache__/gcp_compute_region_target_https_proxy.cpython-312.pyc\" matches a rule \"Asymmetric Private Key\"",
+          "Layer": {
+            "Digest": "sha256:cb2a92edcefea2d17ee4f2161491731961a20c7946644fb80fbacde3735ef4df",
+            "DiffID": "sha256:ba79842e4a19cbd05e12c8ac2a109d46886609c97069ae5b7a6c7055a6087cd9",
+            "CreatedBy": "RUN /bin/sh -c python3 -m pip install --user ansible # buildkit"
+          }
+        }
+      ]
+    },
+    {
+      "Target": "/home/ansible/.local/lib/python3.12/site-packages/ansible_collections/google/cloud/plugins/modules/__pycache__/gcp_compute_target_https_proxy.cpython-312.pyc",
+      "Class": "secret",
+      "Secrets": [
+        {
+          "RuleID": "private-key",
+          "Category": "AsymmetricPrivateKey",
+          "Severity": "HIGH",
+          "Title": "Asymmetric Private Key",
+          "StartLine": 214,
+          "EndLine": 214,
+          "Code": {
+            "Lines": null
+          },
+          "Match": "Binary file \"/home/ansible/.local/lib/python3.12/site-packages/ansible_collections/google/cloud/plugins/modules/__pycache__/gcp_compute_target_https_proxy.cpython-312.pyc\" matches a rule \"Asymmetric Private Key\"",
+          "Layer": {
+            "Digest": "sha256:cb2a92edcefea2d17ee4f2161491731961a20c7946644fb80fbacde3735ef4df",
+            "DiffID": "sha256:ba79842e4a19cbd05e12c8ac2a109d46886609c97069ae5b7a6c7055a6087cd9",
+            "CreatedBy": "RUN /bin/sh -c python3 -m pip install --user ansible # buildkit"
+          }
+        }
+      ]
+    },
+    {
+      "Target": "/home/ansible/.local/lib/python3.12/site-packages/ansible_collections/google/cloud/plugins/modules/__pycache__/gcp_compute_target_ssl_proxy.cpython-312.pyc",
+      "Class": "secret",
+      "Secrets": [
+        {
+          "RuleID": "private-key",
+          "Category": "AsymmetricPrivateKey",
+          "Severity": "HIGH",
+          "Title": "Asymmetric Private Key",
+          "StartLine": 199,
+          "EndLine": 199,
+          "Code": {
+            "Lines": null
+          },
+          "Match": "Binary file \"/home/ansible/.local/lib/python3.12/site-packages/ansible_collections/google/cloud/plugins/modules/__pycache__/gcp_compute_target_ssl_proxy.cpython-312.pyc\" matches a rule \"Asymmetric Private Key\"",
+          "Layer": {
+            "Digest": "sha256:cb2a92edcefea2d17ee4f2161491731961a20c7946644fb80fbacde3735ef4df",
+            "DiffID": "sha256:ba79842e4a19cbd05e12c8ac2a109d46886609c97069ae5b7a6c7055a6087cd9",
+            "CreatedBy": "RUN /bin/sh -c python3 -m pip install --user ansible # buildkit"
+          }
+        }
+      ]
+    },
+    {
+      "Target": "/home/ansible/.local/lib/python3.12/site-packages/ansible_collections/google/cloud/plugins/modules/gcp_compute_ssl_certificate.py",
+      "Class": "secret",
+      "Secrets": [
+        {
+          "RuleID": "private-key",
+          "Category": "AsymmetricPrivateKey",
+          "Severity": "HIGH",
+          "Title": "Asymmetric Private Key",
+          "StartLine": 163,
+          "EndLine": 163,
+          "Code": {
+            "Lines": [
+              {
+                "Number": 161,
+                "Content": "      -----END CERTIFICATE-----",
+                "IsCause": false,
+                "Annotation": "",
+                "Truncated": false,
+                "Highlighted": "      -----END CERTIFICATE-----",
+                "FirstCause": false,
+                "LastCause": false
+              },
+              {
+                "Number": 162,
+                "Content": "    private_key: |-",
+                "IsCause": false,
+                "Annotation": "",
+                "Truncated": false,
+                "Highlighted": "    private_key: |-",
+                "FirstCause": false,
+                "LastCause": false
+              },
+              {
+                "Number": 163,
+                "Content": "-----BEGIN EC PRIVATE KEY-----************************************************************************************************************************************************************************************************-----END EC PRIVATE ",
+                "IsCause": true,
+                "Annotation": "",
+                "Truncated": false,
+                "Highlighted": "-----BEGIN EC PRIVATE KEY-----************************************************************************************************************************************************************************************************-----END EC PRIVATE ",
+                "FirstCause": true,
+                "LastCause": true
+              },
+              {
+                "Number": 164,
+                "Content": "    project: test_project",
+                "IsCause": false,
+                "Annotation": "",
+                "Truncated": false,
+                "Highlighted": "    project: test_project",
+                "FirstCause": false,
+                "LastCause": false
+              }
+            ]
+          },
+          "Match": "-----BEGIN EC PRIVATE KEY-----************************************************************************************************************************************************************************************************-----END EC PRIVATE ",
+          "Layer": {
+            "Digest": "sha256:cb2a92edcefea2d17ee4f2161491731961a20c7946644fb80fbacde3735ef4df",
+            "DiffID": "sha256:ba79842e4a19cbd05e12c8ac2a109d46886609c97069ae5b7a6c7055a6087cd9",
+            "CreatedBy": "RUN /bin/sh -c python3 -m pip install --user ansible # buildkit"
+          }
+        }
+      ]
+    },
+    {
+      "Target": "/home/ansible/.local/lib/python3.12/site-packages/ansible_collections/google/cloud/plugins/modules/gcp_compute_target_https_proxy.py",
+      "Class": "secret",
+      "Secrets": [
+        {
+          "RuleID": "private-key",
+          "Category": "AsymmetricPrivateKey",
+          "Severity": "HIGH",
+          "Title": "Asymmetric Private Key",
+          "StartLine": 242,
+          "EndLine": 242,
+          "Code": {
+            "Lines": [
+              {
+                "Number": 240,
+                "Content": "      -----END CERTIFICATE-----",
+                "IsCause": false,
+                "Annotation": "",
+                "Truncated": false,
+                "Highlighted": "      -----END CERTIFICATE-----",
+                "FirstCause": false,
+                "LastCause": false
+              },
+              {
+                "Number": 241,
+                "Content": "    private_key: |-",
+                "IsCause": false,
+                "Annotation": "",
+                "Truncated": false,
+                "Highlighted": "    private_key: |-",
+                "FirstCause": false,
+                "LastCause": false
+              },
+              {
+                "Number": 242,
+                "Content": "-----BEGIN EC PRIVATE KEY-----************************************************************************************************************************************************************************************************-----END EC PRIVATE ",
+                "IsCause": true,
+                "Annotation": "",
+                "Truncated": false,
+                "Highlighted": "-----BEGIN EC PRIVATE KEY-----************************************************************************************************************************************************************************************************-----END EC PRIVATE ",
+                "FirstCause": true,
+                "LastCause": true
+              },
+              {
+                "Number": 243,
+                "Content": "    project: \"{{ gcp_project }}\"",
+                "IsCause": false,
+                "Annotation": "",
+                "Truncated": false,
+                "Highlighted": "    project: \"{{ gcp_project }}\"",
+                "FirstCause": false,
+                "LastCause": false
+              }
+            ]
+          },
+          "Match": "-----BEGIN EC PRIVATE KEY-----************************************************************************************************************************************************************************************************-----END EC PRIVATE ",
           "Layer": {
             "Digest": "sha256:cb2a92edcefea2d17ee4f2161491731961a20c7946644fb80fbacde3735ef4df",
             "DiffID": "sha256:ba79842e4a19cbd05e12c8ac2a109d46886609c97069ae5b7a6c7055a6087cd9",
@@ -587,359 +1381,6 @@
       ]
     },
     {
-      "Target": "/home/ansible/.local/lib/python3.12/site-packages/ansible_collections/google/cloud/plugins/modules/__pycache__/gcp_compute_region_target_https_proxy.cpython-312.pyc",
-      "Class": "secret",
-      "Secrets": [
-        {
-          "RuleID": "private-key",
-          "Category": "AsymmetricPrivateKey",
-          "Severity": "HIGH",
-          "Title": "Asymmetric Private Key",
-          "StartLine": 194,
-          "EndLine": 194,
-          "Code": {
-            "Lines": null
-          },
-          "Match": "Binary file \"/home/ansible/.local/lib/python3.12/site-packages/ansible_collections/google/cloud/plugins/modules/__pycache__/gcp_compute_region_target_https_proxy.cpython-312.pyc\" matches a rule \"Asymmetric Private Key\"",
-          "Layer": {
-            "Digest": "sha256:cb2a92edcefea2d17ee4f2161491731961a20c7946644fb80fbacde3735ef4df",
-            "DiffID": "sha256:ba79842e4a19cbd05e12c8ac2a109d46886609c97069ae5b7a6c7055a6087cd9",
-            "CreatedBy": "RUN /bin/sh -c python3 -m pip install --user ansible # buildkit"
-          }
-        }
-      ]
-    },
-    {
-      "Target": "/home/ansible/.local/lib/python3.12/site-packages/ansible_collections/google/cloud/plugins/modules/gcp_compute_ssl_certificate.py",
-      "Class": "secret",
-      "Secrets": [
-        {
-          "RuleID": "private-key",
-          "Category": "AsymmetricPrivateKey",
-          "Severity": "HIGH",
-          "Title": "Asymmetric Private Key",
-          "StartLine": 163,
-          "EndLine": 163,
-          "Code": {
-            "Lines": [
-              {
-                "Number": 161,
-                "Content": "      -----END CERTIFICATE-----",
-                "IsCause": false,
-                "Annotation": "",
-                "Truncated": false,
-                "Highlighted": "      -----END CERTIFICATE-----",
-                "FirstCause": false,
-                "LastCause": false
-              },
-              {
-                "Number": 162,
-                "Content": "    private_key: |-",
-                "IsCause": false,
-                "Annotation": "",
-                "Truncated": false,
-                "Highlighted": "    private_key: |-",
-                "FirstCause": false,
-                "LastCause": false
-              },
-              {
-                "Number": 163,
-                "Content": "-----BEGIN EC PRIVATE KEY-----************************************************************************************************************************************************************************************************-----END EC PRIVATE ",
-                "IsCause": true,
-                "Annotation": "",
-                "Truncated": false,
-                "Highlighted": "-----BEGIN EC PRIVATE KEY-----************************************************************************************************************************************************************************************************-----END EC PRIVATE ",
-                "FirstCause": true,
-                "LastCause": true
-              },
-              {
-                "Number": 164,
-                "Content": "    project: test_project",
-                "IsCause": false,
-                "Annotation": "",
-                "Truncated": false,
-                "Highlighted": "    project: test_project",
-                "FirstCause": false,
-                "LastCause": false
-              }
-            ]
-          },
-          "Match": "-----BEGIN EC PRIVATE KEY-----************************************************************************************************************************************************************************************************-----END EC PRIVATE ",
-          "Layer": {
-            "Digest": "sha256:cb2a92edcefea2d17ee4f2161491731961a20c7946644fb80fbacde3735ef4df",
-            "DiffID": "sha256:ba79842e4a19cbd05e12c8ac2a109d46886609c97069ae5b7a6c7055a6087cd9",
-            "CreatedBy": "RUN /bin/sh -c python3 -m pip install --user ansible # buildkit"
-          }
-        }
-      ]
-    },
-    {
-      "Target": "/home/ansible/.local/lib/python3.12/site-packages/ansible_collections/azure/azcollection/plugins/modules/__pycache__/azure_rm_accesstoken_info.cpython-312.pyc",
-      "Class": "secret",
-      "Secrets": [
-        {
-          "RuleID": "jwt-token",
-          "Category": "JWT",
-          "Severity": "MEDIUM",
-          "Title": "JWT token",
-          "StartLine": 43,
-          "EndLine": 43,
-          "Code": {
-            "Lines": null
-          },
-          "Match": "Binary file \"/home/ansible/.local/lib/python3.12/site-packages/ansible_collections/azure/azcollection/plugins/modules/__pycache__/azure_rm_accesstoken_info.cpython-312.pyc\" matches a rule \"JWT token\"",
-          "Layer": {
-            "Digest": "sha256:cb2a92edcefea2d17ee4f2161491731961a20c7946644fb80fbacde3735ef4df",
-            "DiffID": "sha256:ba79842e4a19cbd05e12c8ac2a109d46886609c97069ae5b7a6c7055a6087cd9",
-            "CreatedBy": "RUN /bin/sh -c python3 -m pip install --user ansible # buildkit"
-          }
-        }
-      ]
-    },
-    {
-      "Target": "/home/ansible/.local/lib/python3.12/site-packages/ansible_collections/google/cloud/plugins/modules/__pycache__/gcp_compute_target_ssl_proxy.cpython-312.pyc",
-      "Class": "secret",
-      "Secrets": [
-        {
-          "RuleID": "private-key",
-          "Category": "AsymmetricPrivateKey",
-          "Severity": "HIGH",
-          "Title": "Asymmetric Private Key",
-          "StartLine": 199,
-          "EndLine": 199,
-          "Code": {
-            "Lines": null
-          },
-          "Match": "Binary file \"/home/ansible/.local/lib/python3.12/site-packages/ansible_collections/google/cloud/plugins/modules/__pycache__/gcp_compute_target_ssl_proxy.cpython-312.pyc\" matches a rule \"Asymmetric Private Key\"",
-          "Layer": {
-            "Digest": "sha256:cb2a92edcefea2d17ee4f2161491731961a20c7946644fb80fbacde3735ef4df",
-            "DiffID": "sha256:ba79842e4a19cbd05e12c8ac2a109d46886609c97069ae5b7a6c7055a6087cd9",
-            "CreatedBy": "RUN /bin/sh -c python3 -m pip install --user ansible # buildkit"
-          }
-        }
-      ]
-    },
-    {
-      "Target": "/home/ansible/.local/lib/python3.12/site-packages/ansible_collections/google/cloud/plugins/modules/__pycache__/gcp_compute_ssl_certificate.cpython-312.pyc",
-      "Class": "secret",
-      "Secrets": [
-        {
-          "RuleID": "private-key",
-          "Category": "AsymmetricPrivateKey",
-          "Severity": "HIGH",
-          "Title": "Asymmetric Private Key",
-          "StartLine": 137,
-          "EndLine": 137,
-          "Code": {
-            "Lines": null
-          },
-          "Match": "Binary file \"/home/ansible/.local/lib/python3.12/site-packages/ansible_collections/google/cloud/plugins/modules/__pycache__/gcp_compute_ssl_certificate.cpython-312.pyc\" matches a rule \"Asymmetric Private Key\"",
-          "Layer": {
-            "Digest": "sha256:cb2a92edcefea2d17ee4f2161491731961a20c7946644fb80fbacde3735ef4df",
-            "DiffID": "sha256:ba79842e4a19cbd05e12c8ac2a109d46886609c97069ae5b7a6c7055a6087cd9",
-            "CreatedBy": "RUN /bin/sh -c python3 -m pip install --user ansible # buildkit"
-          }
-        }
-      ]
-    },
-    {
-      "Target": "/home/ansible/.local/lib/python3.12/site-packages/ansible_collections/community/aws/plugins/modules/sts_session_token.py",
-      "Class": "secret",
-      "Secrets": [
-        {
-          "RuleID": "aws-access-key-id",
-          "Category": "AWS",
-          "Severity": "CRITICAL",
-          "Title": "AWS Access Key ID",
-          "StartLine": 46,
-          "EndLine": 46,
-          "Code": {
-            "Lines": [
-              {
-                "Number": 44,
-                "Content": "    type: list",
-                "IsCause": false,
-                "Annotation": "",
-                "Truncated": false,
-                "Highlighted": "    type: list",
-                "FirstCause": false,
-                "LastCause": false
-              },
-              {
-                "Number": 45,
-                "Content": "    sample:",
-                "IsCause": false,
-                "Annotation": "",
-                "Truncated": false,
-                "Highlighted": "    sample:",
-                "FirstCause": false,
-                "LastCause": false
-              },
-              {
-                "Number": 46,
-                "Content": "      access_key: ********************",
-                "IsCause": true,
-                "Annotation": "",
-                "Truncated": false,
-                "Highlighted": "      access_key: ********************",
-                "FirstCause": true,
-                "LastCause": true
-              },
-              {
-                "Number": 47,
-                "Content": "      expiration: \"2016-04-08T11:59:47+00:00\"",
-                "IsCause": false,
-                "Annotation": "",
-                "Truncated": false,
-                "Highlighted": "      expiration: \"2016-04-08T11:59:47+00:00\"",
-                "FirstCause": false,
-                "LastCause": false
-              }
-            ]
-          },
-          "Match": "      access_key: ********************",
-          "Layer": {
-            "Digest": "sha256:cb2a92edcefea2d17ee4f2161491731961a20c7946644fb80fbacde3735ef4df",
-            "DiffID": "sha256:ba79842e4a19cbd05e12c8ac2a109d46886609c97069ae5b7a6c7055a6087cd9",
-            "CreatedBy": "RUN /bin/sh -c python3 -m pip install --user ansible # buildkit"
-          }
-        }
-      ]
-    },
-    {
-      "Target": "/home/ansible/.local/lib/python3.12/site-packages/ansible_collections/community/digitalocean/plugins/modules/__pycache__/digital_ocean_certificate.cpython-312.pyc",
-      "Class": "secret",
-      "Secrets": [
-        {
-          "RuleID": "private-key",
-          "Category": "AsymmetricPrivateKey",
-          "Severity": "HIGH",
-          "Title": "Asymmetric Private Key",
-          "StartLine": 42,
-          "EndLine": 42,
-          "Code": {
-            "Lines": null
-          },
-          "Match": "Binary file \"/home/ansible/.local/lib/python3.12/site-packages/ansible_collections/community/digitalocean/plugins/modules/__pycache__/digital_ocean_certificate.cpython-312.pyc\" matches a rule \"Asymmetric Private Key\"",
-          "Layer": {
-            "Digest": "sha256:cb2a92edcefea2d17ee4f2161491731961a20c7946644fb80fbacde3735ef4df",
-            "DiffID": "sha256:ba79842e4a19cbd05e12c8ac2a109d46886609c97069ae5b7a6c7055a6087cd9",
-            "CreatedBy": "RUN /bin/sh -c python3 -m pip install --user ansible # buildkit"
-          }
-        }
-      ]
-    },
-    {
-      "Target": "/home/ansible/.local/lib/python3.12/site-packages/ansible_collections/community/network/plugins/modules/__pycache__/avi_cloudconnectoruser.cpython-312.pyc",
-      "Class": "secret",
-      "Secrets": [
-        {
-          "RuleID": "private-key",
-          "Category": "AsymmetricPrivateKey",
-          "Severity": "HIGH",
-          "Title": "Asymmetric Private Key",
-          "StartLine": 76,
-          "EndLine": 76,
-          "Code": {
-            "Lines": null
-          },
-          "Match": "Binary file \"/home/ansible/.local/lib/python3.12/site-packages/ansible_collections/community/network/plugins/modules/__pycache__/avi_cloudconnectoruser.cpython-312.pyc\" matches a rule \"Asymmetric Private Key\"",
-          "Layer": {
-            "Digest": "sha256:cb2a92edcefea2d17ee4f2161491731961a20c7946644fb80fbacde3735ef4df",
-            "DiffID": "sha256:ba79842e4a19cbd05e12c8ac2a109d46886609c97069ae5b7a6c7055a6087cd9",
-            "CreatedBy": "RUN /bin/sh -c python3 -m pip install --user ansible # buildkit"
-          }
-        }
-      ]
-    },
-    {
-      "Target": "/home/ansible/.local/lib/python3.12/site-packages/ansible_collections/google/cloud/plugins/modules/__pycache__/gcp_compute_target_https_proxy.cpython-312.pyc",
-      "Class": "secret",
-      "Secrets": [
-        {
-          "RuleID": "private-key",
-          "Category": "AsymmetricPrivateKey",
-          "Severity": "HIGH",
-          "Title": "Asymmetric Private Key",
-          "StartLine": 214,
-          "EndLine": 214,
-          "Code": {
-            "Lines": null
-          },
-          "Match": "Binary file \"/home/ansible/.local/lib/python3.12/site-packages/ansible_collections/google/cloud/plugins/modules/__pycache__/gcp_compute_target_https_proxy.cpython-312.pyc\" matches a rule \"Asymmetric Private Key\"",
-          "Layer": {
-            "Digest": "sha256:cb2a92edcefea2d17ee4f2161491731961a20c7946644fb80fbacde3735ef4df",
-            "DiffID": "sha256:ba79842e4a19cbd05e12c8ac2a109d46886609c97069ae5b7a6c7055a6087cd9",
-            "CreatedBy": "RUN /bin/sh -c python3 -m pip install --user ansible # buildkit"
-          }
-        }
-      ]
-    },
-    {
-      "Target": "/home/ansible/.local/lib/python3.12/site-packages/ansible_collections/google/cloud/plugins/modules/gcp_compute_target_ssl_proxy.py",
-      "Class": "secret",
-      "Secrets": [
-        {
-          "RuleID": "private-key",
-          "Category": "AsymmetricPrivateKey",
-          "Severity": "HIGH",
-          "Title": "Asymmetric Private Key",
-          "StartLine": 226,
-          "EndLine": 226,
-          "Code": {
-            "Lines": [
-              {
-                "Number": 224,
-                "Content": "      -----END CERTIFICATE-----",
-                "IsCause": false,
-                "Annotation": "",
-                "Truncated": false,
-                "Highlighted": "      -----END CERTIFICATE-----",
-                "FirstCause": false,
-                "LastCause": false
-              },
-              {
-                "Number": 225,
-                "Content": "    private_key: |-",
-                "IsCause": false,
-                "Annotation": "",
-                "Truncated": false,
-                "Highlighted": "    private_key: |-",
-                "FirstCause": false,
-                "LastCause": false
-              },
-              {
-                "Number": 226,
-                "Content": "-----BEGIN EC PRIVATE KEY-----************************************************************************************************************************************************************************************************-----END EC PRIVATE ",
-                "IsCause": true,
-                "Annotation": "",
-                "Truncated": false,
-                "Highlighted": "-----BEGIN EC PRIVATE KEY-----************************************************************************************************************************************************************************************************-----END EC PRIVATE ",
-                "FirstCause": true,
-                "LastCause": true
-              },
-              {
-                "Number": 227,
-                "Content": "    project: \"{{ gcp_project }}\"",
-                "IsCause": false,
-                "Annotation": "",
-                "Truncated": false,
-                "Highlighted": "    project: \"{{ gcp_project }}\"",
-                "FirstCause": false,
-                "LastCause": false
-              }
-            ]
-          },
-          "Match": "-----BEGIN EC PRIVATE KEY-----************************************************************************************************************************************************************************************************-----END EC PRIVATE ",
-          "Layer": {
-            "Digest": "sha256:cb2a92edcefea2d17ee4f2161491731961a20c7946644fb80fbacde3735ef4df",
-            "DiffID": "sha256:ba79842e4a19cbd05e12c8ac2a109d46886609c97069ae5b7a6c7055a6087cd9",
-            "CreatedBy": "RUN /bin/sh -c python3 -m pip install --user ansible # buildkit"
-          }
-        }
-      ]
-    },
-    {
       "Target": "/home/ansible/.local/lib/python3.12/site-packages/ansible_collections/netapp/storagegrid/plugins/modules/__pycache__/na_sg_grid_certificate.cpython-312.pyc",
       "Class": "secret",
       "Secrets": [
@@ -954,70 +1395,6 @@
             "Lines": null
           },
           "Match": "Binary file \"/home/ansible/.local/lib/python3.12/site-packages/ansible_collections/netapp/storagegrid/plugins/modules/__pycache__/na_sg_grid_certificate.cpython-312.pyc\" matches a rule \"Asymmetric Private Key\"",
-          "Layer": {
-            "Digest": "sha256:cb2a92edcefea2d17ee4f2161491731961a20c7946644fb80fbacde3735ef4df",
-            "DiffID": "sha256:ba79842e4a19cbd05e12c8ac2a109d46886609c97069ae5b7a6c7055a6087cd9",
-            "CreatedBy": "RUN /bin/sh -c python3 -m pip install --user ansible # buildkit"
-          }
-        }
-      ]
-    },
-    {
-      "Target": "/home/ansible/.local/lib/python3.12/site-packages/ansible_collections/azure/azcollection/plugins/modules/azure_rm_accesstoken_info.py",
-      "Class": "secret",
-      "Secrets": [
-        {
-          "RuleID": "jwt-token",
-          "Category": "JWT",
-          "Severity": "MEDIUM",
-          "Title": "JWT token",
-          "StartLine": 64,
-          "EndLine": 64,
-          "Code": {
-            "Lines": [
-              {
-                "Number": 62,
-                "Content": "    returned: success",
-                "IsCause": false,
-                "Annotation": "",
-                "Truncated": false,
-                "Highlighted": "    returned: success",
-                "FirstCause": false,
-                "LastCause": false
-              },
-              {
-                "Number": 63,
-                "Content": "    type: str",
-                "IsCause": false,
-                "Annotation": "",
-                "Truncated": false,
-                "Highlighted": "    type: str",
-                "FirstCause": false,
-                "LastCause": false
-              },
-              {
-                "Number": 64,
-                "Content": "    sample: ***********************************************************************************************************************************",
-                "IsCause": true,
-                "Annotation": "",
-                "Truncated": false,
-                "Highlighted": "    sample: ***********************************************************************************************************************************",
-                "FirstCause": true,
-                "LastCause": true
-              },
-              {
-                "Number": 65,
-                "Content": "expires_on:",
-                "IsCause": false,
-                "Annotation": "",
-                "Truncated": false,
-                "Highlighted": "expires_on:",
-                "FirstCause": false,
-                "LastCause": false
-              }
-            ]
-          },
-          "Match": "    sample: ***********************************************************************************************************************************",
           "Layer": {
             "Digest": "sha256:cb2a92edcefea2d17ee4f2161491731961a20c7946644fb80fbacde3735ef4df",
             "DiffID": "sha256:ba79842e4a19cbd05e12c8ac2a109d46886609c97069ae5b7a6c7055a6087cd9",
